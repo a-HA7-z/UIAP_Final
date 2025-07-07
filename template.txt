@@ -1,1 +1,2 @@
-Enter your student number and Full name here.
+Student number: 4033613057 
+Full name: Hossein Azizpour
