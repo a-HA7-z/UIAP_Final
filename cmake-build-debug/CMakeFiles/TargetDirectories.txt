@@ -1,0 +1,3 @@
+E:/Projects/UIAP_Final/cmake-build-debug/CMakeFiles/UIAP_Final.dir
+E:/Projects/UIAP_Final/cmake-build-debug/CMakeFiles/edit_cache.dir
+E:/Projects/UIAP_Final/cmake-build-debug/CMakeFiles/rebuild_cache.dir
