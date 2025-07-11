@@ -1,0 +1,10 @@
+# ninja log v6
+59	1602	7739182215605471	build.ninja	5074e9af5c217b0b
+22	1102	7739182217242174	CMakeFiles/UIAP_Final.dir/main.cpp.obj	ca981c48cfe0d0ae
+1122	1732	7739182228238278	UIAP_Final.exe	8a73cc5c7eba2ce2
+24	314	7739194061287631	CMakeFiles/UIAP_Final.dir/main.cpp.obj	ca981c48cfe0d0ae
+314	398	7739194064188237	UIAP_Final.exe	8a73cc5c7eba2ce2
+24	295	7739194227032317	CMakeFiles/UIAP_Final.dir/main.cpp.obj	ca981c48cfe0d0ae
+295	362	7739194229735825	UIAP_Final.exe	8a73cc5c7eba2ce2
+2	274	7739194402972807	CMakeFiles/UIAP_Final.dir/main.cpp.obj	ca981c48cfe0d0ae
+274	347	7739194405689876	UIAP_Final.exe	8a73cc5c7eba2ce2
