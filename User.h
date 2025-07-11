@@ -15,6 +15,10 @@ public:
 
     void setUsername(string);
     void setPassword(string);
+    void setFirstName(string);
+    void setLastName(string);
+    void setNationalCode(string);
+    void setAge(int);
 
     string getFirstName() const;
     string getLastName() const;
