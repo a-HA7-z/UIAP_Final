@@ -1,19 +1,18 @@
 #pragma once
+template<typename T>
 class CNode
 {
 private:
-	int data;
-	CNode* next;
+	T data;
+	CNode<T>* next;
 public:
-	int getData() { return this->data; }
-	CNode* getNext() { return this->next; }
-	
-	void setData(int Data)
-	{
-		 this->data = Data;
-	}
+	CNode(const T& Data, CNode<T>* Next) : data(Data), next(Next) {}
 
-	void setNext(CNode* Next)
+	T& getData() { return this->data; }
+
+	CNode<T>* getNext() { return this->next; }
+
+	void setNext(CNode<T>* Next)
 	{
 		this->next = Next;
 	}
