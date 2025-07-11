@@ -11,6 +11,22 @@ void User::setPassword(string pass) {
     password = pass;
 }
 
+void User::setFirstName(string name) {
+    firstName = name;
+}
+
+void User::setLastName(string name) {
+    lastName = name;
+}
+
+void User::setNationalCode(string code) {
+    nationalCode = code;
+}
+
+void User::setAge(int Age) {
+    this->age = Age;
+}
+
 string User::getFirstName() const {
     return firstName;
 }
