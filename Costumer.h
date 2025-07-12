@@ -8,9 +8,11 @@ using namespace std;
 class Costumer : public User
 {
 private:
-    CLinkedList<unique_ptr<BankAccount>> BankAccounts;
+    CLinkedList<shared_ptr<BankAccount>> BankAccounts;
 public:
     Costumer(string fName,string lName,string IDNumber,int age);
+
+    Costumer(const Costumer& other);
 
     void changeCardPin(int ,string );
 
