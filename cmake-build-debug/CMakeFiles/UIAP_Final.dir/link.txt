@@ -1,0 +1,3 @@
+"D:\Programs\CLion\CLion 2024.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\UIAP_Final.dir/objects.a
+"D:\Programs\CLion\CLion 2024.3\bin\mingw\bin\ar.exe" qc CMakeFiles\UIAP_Final.dir/objects.a @CMakeFiles\UIAP_Final.dir\objects1.rsp
+"D:\Programs\CLion\CLion 2024.3\bin\mingw\bin\g++.exe" -g -Wl,--whole-archive CMakeFiles\UIAP_Final.dir/objects.a -Wl,--no-whole-archive -o UIAP_Final.exe -Wl,--out-implib,libUIAP_Final.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\UIAP_Final.dir\linkLibs.rsp

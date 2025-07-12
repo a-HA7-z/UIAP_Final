@@ -1,10 +1,15 @@
 # ninja log v6
-59	1602	7739182215605471	build.ninja	5074e9af5c217b0b
-22	1102	7739182217242174	CMakeFiles/UIAP_Final.dir/main.cpp.obj	ca981c48cfe0d0ae
-1122	1732	7739182228238278	UIAP_Final.exe	8a73cc5c7eba2ce2
-24	314	7739194061287631	CMakeFiles/UIAP_Final.dir/main.cpp.obj	ca981c48cfe0d0ae
-314	398	7739194064188237	UIAP_Final.exe	8a73cc5c7eba2ce2
-24	295	7739194227032317	CMakeFiles/UIAP_Final.dir/main.cpp.obj	ca981c48cfe0d0ae
-295	362	7739194229735825	UIAP_Final.exe	8a73cc5c7eba2ce2
+59	1602	7740174291989010	build.ninja	5074e9af5c217b0b
 2	274	7739194402972807	CMakeFiles/UIAP_Final.dir/main.cpp.obj	ca981c48cfe0d0ae
 274	347	7739194405689876	UIAP_Final.exe	8a73cc5c7eba2ce2
+1	324	7740174291989010	build.ninja	5074e9af5c217b0b
+19	27	7740174293093391	clean	fd986c170cde9610
+35	689	7740174294378783	CMakeFiles/UIAP_Final.dir/DepositAccount.cpp.obj	516b3be92be12494
+23	762	7740174294258587	CMakeFiles/UIAP_Final.dir/BankAccount.cpp.obj	8ae4789a3ccff40a
+29	823	7740174294325271	CMakeFiles/UIAP_Final.dir/CurrentAccount.cpp.obj	11b1a3aab0aa4bd
+9	862	7740174294121553	CMakeFiles/UIAP_Final.dir/User.cpp.obj	1f12bf44935d8dc6
+13	863	7740174294161563	CMakeFiles/UIAP_Final.dir/Admin.cpp.obj	53e30fded7b796cf
+40	875	7740174294429751	CMakeFiles/UIAP_Final.dir/GharzolhasanehAccount.cpp.obj	abec9b5f0dca9e09
+17	975	7740174294202726	CMakeFiles/UIAP_Final.dir/Costumer.cpp.obj	4db64c7498960ee4
+5	1002	7740174294081574	CMakeFiles/UIAP_Final.dir/main.cpp.obj	ca981c48cfe0d0ae
+1002	1139	7740174304042525	UIAP_Final.exe	46580421cce5547f

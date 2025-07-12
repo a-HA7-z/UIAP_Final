@@ -46,3 +46,7 @@ long long int BankAccount::getBalance() const {
 string BankAccount::getDynamicPassword() const {
     return dynamicPassword;
 }
+
+void BankAccount::addMoney(long long int money) {
+    balance = balance + money;
+}

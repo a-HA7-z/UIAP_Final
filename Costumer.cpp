@@ -20,3 +20,16 @@ void Costumer::changeCardStaticPass(int index, string newPassword)
     }
     targetCard->getData()->setStaticPassword(newPassword);
 }
+
+void Costumer::cardToCard(string originCard, BankAccount *destinationCard, long long int money) {
+    CNode<unique_ptr<BankAccount>>* targetOriginCard = BankAccounts.getHead();
+    for(int i = 0;i < BankAccounts.getSize();i++){
+        if(targetOriginCard->getData()->getCardNumber() == originCard){
+            break;
+        }
+        targetOriginCard = targetOriginCard->getNext();
+    }
+    targetOriginCard->getData()->addMoney(-1*money);
+
+    destinationCard->addMoney(money);
+}

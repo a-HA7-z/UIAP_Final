@@ -31,4 +31,6 @@ public:
     string getStaticPassword() const;
     string getDynamicPassword() const;
     long long int getBalance() const;
+
+    void addMoney(long long int money);
 };
