@@ -7,6 +7,8 @@ using namespace std;
 
 class Costumer : public User
 {
+    friend class Admin;
+
 private:
     CLinkedList<shared_ptr<BankAccount>> BankAccounts;
 public:

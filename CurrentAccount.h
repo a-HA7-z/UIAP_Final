@@ -9,4 +9,6 @@ public:
                    const string& staticPassword, long long int balance);
 
     void issueCheque();
+
+    void showType();
 };

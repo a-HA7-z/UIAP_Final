@@ -17,20 +17,22 @@ public:
                 const string& CVV2, const string& Exp_Date, const string& PIN,
                 const string& staticPassword, long long int balance);
 
-    void setPIN(const string& Pin);
-    void setStaticPassword(const string& staticPass);
-    void setDynamicPassword(const string& dynamicPass);
-    void setBalance(long long int Balance);
+    virtual void setPIN(const string& Pin);
+    virtual void setStaticPassword(const string& staticPass);
+    virtual void setDynamicPassword(const string& dynamicPass);
+    virtual void setBalance(long long int Balance);
 
-    string getCardNumber() const;
-    string getAccountNumber() const;
-    string getIBANNumber() const;
-    string getCVV2() const;
-    string getExpDate() const;
-    string getPIN() const;
-    string getStaticPassword() const;
-    string getDynamicPassword() const;
-    long long int getBalance() const;
+    virtual string getCardNumber() const;
+    virtual string getAccountNumber() const;
+    virtual string getIBANNumber() const;
+    virtual string getCVV2() const;
+    virtual string getExpDate() const;
+    virtual string getPIN() const;
+    virtual string getStaticPassword() const;
+    virtual string getDynamicPassword() const;
+    virtual long long int getBalance() const;
 
-    void addMoney(long long int money);
+    virtual void addMoney(long long int money);
+
+    virtual void showType() = 0;
 };

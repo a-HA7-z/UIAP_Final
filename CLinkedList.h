@@ -36,7 +36,7 @@ public:
         return head;
     }
 
-    void listPushBack(T& data)
+    void listPushBack(T data)
     {
         CNode<T>* tmp = new CNode<T>(data, nullptr);
         if (this->tail == nullptr)

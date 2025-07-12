@@ -9,4 +9,6 @@ public:
                    const string& staticPassword, long long int balance);
 
     double calculateInterest(int );
+
+    virtual void showType();
 };
