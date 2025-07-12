@@ -29,6 +29,13 @@ public:
         }
     }
 
+    int getSize() const{
+        return size;
+    }
+    CNode<T>* getHead() const{
+        return head;
+    }
+
     void listPushBack(T data)
     {
         CNode<T>* tmp = new CNode<T>(data, nullptr);

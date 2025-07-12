@@ -17,10 +17,10 @@ public:
                 const string& CVV2, const string& Exp_Date, const string& PIN,
                 const string& staticPassword, long long int balance);
 
-    void setPIN(const string& PIN);
-    void setStaticPassword(const string& staticPassword);
-    void setDynamicPassword(const string& dynamicPassword);
-    void setBalance(long long int balance);
+    void setPIN(const string& Pin);
+    void setStaticPassword(const string& staticPass);
+    void setDynamicPassword(const string& dynamicPass);
+    void setBalance(long long int Balance);
 
     string getCardNumber() const;
     string getAccountNumber() const;
@@ -31,4 +31,6 @@ public:
     string getStaticPassword() const;
     string getDynamicPassword() const;
     long long int getBalance() const;
+
+    void addMoney(long long int money);
 };
