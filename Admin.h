@@ -7,4 +7,6 @@ public:
     Admin(string fName,string lName,string IDNumber,int age);
 
     void addCostumer(CLinkedList<Costumer>& list,string fName,string lName,string IDNumber,int age,string user,string password);
+
+    void deleteCostumer(CLinkedList<Costumer>& costumers,int index);
 };

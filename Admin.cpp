@@ -12,3 +12,7 @@ void Admin::addCostumer(CLinkedList<Costumer>& list, string fName, string lName,
     newCostumer.setPassword(password);
     list.listPushBack(newCostumer);
 }
+
+void Admin::deleteCostumer(CLinkedList<Costumer> &costumers, int index) {
+    costumers.deleteNodeAt(index);
+}
