@@ -11,4 +11,8 @@ private:
     CLinkedList<unique_ptr<BankAccount>> BankAccounts;
 public:
     Costumer(string fName,string lName,string IDNumber,int age);
+
+    void changeCardPin(int ,string );
+
+    void changeCardStaticPass(int , string);
 };
