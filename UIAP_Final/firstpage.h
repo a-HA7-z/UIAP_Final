@@ -17,6 +17,9 @@ public:
     FirstPage(QWidget *parent = nullptr);
     ~FirstPage();
 
+private slots:
+    void on_AdminRole_clicked();
+
 private:
     Ui::FirstPage *ui;
 };
