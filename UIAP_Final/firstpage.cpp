@@ -12,3 +12,9 @@ FirstPage::~FirstPage()
 {
     delete ui;
 }
+
+void FirstPage::on_AdminRole_clicked()
+{
+
+}
+
