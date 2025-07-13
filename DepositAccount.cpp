@@ -1,3 +1,4 @@
+#include <iostream>
 #include "DepositAccount.h"
 
 DepositAccount::DepositAccount(const string& cardNumber, const string& accountNumber, const string& IBAN_number,
@@ -8,4 +9,8 @@ DepositAccount::DepositAccount(const string& cardNumber, const string& accountNu
 double DepositAccount::calculateInterest(int months) {
     double rate = 0.1;
     return (getBalance() * rate * months) / 12.0;
+}
+
+void DepositAccount::showType() {
+    std::cout << "Deposit Bank Account" << endl;
 }

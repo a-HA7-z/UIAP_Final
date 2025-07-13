@@ -9,3 +9,7 @@ GharzolhasanehAccount::GharzolhasanehAccount(const string& cardNumber, const str
 void GharzolhasanehAccount::applyForLoan() {
     cout << "Applying for Gharzolhasaneh loan..." << endl;
 }
+
+void GharzolhasanehAccount::showType() {
+    cout << "Gharzolhasaneh Bank Account" << endl;
+}

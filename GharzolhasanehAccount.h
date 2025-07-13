@@ -1,7 +1,7 @@
 #include "BankAccount.h"
 using namespace std;
 
-class GharzolhasanehAccount : BankAccount
+class GharzolhasanehAccount : public BankAccount
 {
 public:
     GharzolhasanehAccount(const string& cardNumber, const string& accountNumber, const string& IBAN_number,
@@ -9,4 +9,6 @@ public:
                           const string& staticPassword, long long int balance);
 
     void applyForLoan();
+
+    void showType();
 };

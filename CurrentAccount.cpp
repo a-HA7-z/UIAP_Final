@@ -9,3 +9,7 @@ CurrentAccount::CurrentAccount(const string& cardNumber, const string& accountNu
 void CurrentAccount::issueCheque() {
     cout << "Issuing a cheque from current account..." << endl;
 }
+
+void CurrentAccount::showType() {
+    cout << "Current Bank Account" << endl;
+}
