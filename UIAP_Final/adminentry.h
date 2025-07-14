@@ -15,6 +15,9 @@ public:
     explicit AdminEntry(QWidget *parent = nullptr);
     ~AdminEntry();
 
+private slots:
+    void on_SignupButton_clicked();
+
 private:
     Ui::AdminEntry *ui;
 };

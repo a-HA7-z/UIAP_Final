@@ -12,6 +12,7 @@ INCLUDEPATH += ..
 
 SOURCES += \
     adminentry.cpp \
+    adminsignup.cpp \
     main.cpp \
     firstpage.cpp \
     ../User.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
 
 HEADERS += \
     adminentry.h \
+    adminsignup.h \
     firstpage.h \
     ../User.h \
     ../Admin.h \
@@ -39,6 +41,7 @@ HEADERS += \
 
 FORMS += \
     adminentry.ui \
+    adminsignup.ui \
     firstpage.ui
 
 # Default rules for deployment.
