@@ -1,3 +1,4 @@
+#pragma once
 #include "User.h"
 #include "Costumer.h"
 #include "CLinkedList.h"

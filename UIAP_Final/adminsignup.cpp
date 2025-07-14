@@ -3,6 +3,7 @@
 #include "adminsignup.h"
 #include "ui_adminsignup.h"
 #include "projectdata.h"
+#include "adminpanel.h"
 AdminSignUp::AdminSignUp(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::AdminSignUp)
@@ -102,4 +103,10 @@ void AdminSignUp::on_pushButton_clicked()
 
     ProjectData::data().addAdmin(newAdmin);
 
+    Admin* addedAdmin = ProjectData::data().findAdmin(newAdmin.getUsername());
+    if (addedAdmin) {
+        AdminPanel* panel = new AdminPanel(addedAdmin);
+        panel->show();
+        this->close();
+    }
 }

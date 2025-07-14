@@ -1,3 +1,4 @@
+#pragma once
 #include "BankAccount.h"
 using namespace std;
 

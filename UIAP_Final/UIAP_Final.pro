@@ -13,6 +13,7 @@ INCLUDEPATH += ..
 SOURCES += \
     adminentry.cpp \
     adminloginpage.cpp \
+    adminpanel.cpp \
     adminsignup.cpp \
     main.cpp \
     firstpage.cpp \
@@ -28,6 +29,7 @@ SOURCES += \
 HEADERS += \
     adminentry.h \
     adminloginpage.h \
+    adminpanel.h \
     adminsignup.h \
     firstpage.h \
     ../User.h \
@@ -44,6 +46,7 @@ HEADERS += \
 FORMS += \
     adminentry.ui \
     adminloginpage.ui \
+    adminpanel.ui \
     adminsignup.ui \
     firstpage.ui
 

@@ -2,6 +2,7 @@
 #include "adminloginpage.h"
 #include "ui_adminloginpage.h"
 #include "projectdata.h"
+#include "adminpanel.h"
 AdminLoginPage::AdminLoginPage(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::AdminLoginPage)
@@ -41,6 +42,8 @@ void AdminLoginPage::on_pushButton_clicked()
         return;
     }
 
-    QApplication::exit();
+    AdminPanel* panel = new AdminPanel(admin);
+    panel->show();
+    this->close();
 }
 
