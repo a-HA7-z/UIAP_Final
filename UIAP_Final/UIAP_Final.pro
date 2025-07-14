@@ -11,6 +11,7 @@ INCLUDEPATH += ..
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    adminentry.cpp \
     main.cpp \
     firstpage.cpp \
     ../User.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
     projectdata.cpp
 
 HEADERS += \
+    adminentry.h \
     firstpage.h \
     ../User.h \
     ../Admin.h \
@@ -36,6 +38,7 @@ HEADERS += \
     projectdata.h
 
 FORMS += \
+    adminentry.ui \
     firstpage.ui
 
 # Default rules for deployment.

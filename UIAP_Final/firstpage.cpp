@@ -1,6 +1,6 @@
 #include "firstpage.h"
 #include "ui_firstpage.h"
-
+#include "adminentry.h"
 FirstPage::FirstPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::FirstPage)
@@ -15,6 +15,8 @@ FirstPage::~FirstPage()
 
 void FirstPage::on_AdminRole_clicked()
 {
-
+    this->close();
+    AdminEntry* entry = new AdminEntry;
+    entry->show();
 }
 
