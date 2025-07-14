@@ -18,6 +18,8 @@ public:
 private slots:
     void on_SignupButton_clicked();
 
+    void on_LoginButton_clicked();
+
 private:
     Ui::AdminEntry *ui;
 };
