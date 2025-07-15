@@ -2,7 +2,7 @@
 #define ADMIN_COSTUMERDETAILS_H
 
 #include <QWidget>
-
+#include "projectdata.h"
 namespace Ui {
 class Admin_CostumerDetails;
 }
@@ -13,10 +13,19 @@ class Admin_CostumerDetails : public QWidget
 
 public:
     explicit Admin_CostumerDetails(QWidget *parent = nullptr);
+    void setCostumer(Costumer* costumer);
     ~Admin_CostumerDetails();
+
+private slots:
+    void on_BankAccounts_clicked();
+
+    void on_AddBankAcount_clicked();
+
+    void on_EditInfo_clicked();
 
 private:
     Ui::Admin_CostumerDetails *ui;
+    Costumer* currentCostumer;
 };
 
 #endif // ADMIN_COSTUMERDETAILS_H

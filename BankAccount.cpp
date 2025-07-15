@@ -4,7 +4,7 @@ BankAccount::BankAccount(const string& cardNumber, const string& accountNumber, 
                          const string& CVV2, const string& Exp_Date, const string& PIN,
                          const string& staticPassword, long long int balance)
         : cardNumber(cardNumber), accountNumber(accountNumber), IBAN_number(IBAN_number), CVV2(CVV2),
-          Exp_Date(Exp_Date), PIN(PIN), staticPassword(staticPassword),dynamicPassword(nullptr),balance(balance) {}
+          Exp_Date(Exp_Date), PIN(PIN), staticPassword(staticPassword),dynamicPassword(""),balance(balance) {}
 
 void BankAccount::setPIN(const string& Pin) {
     PIN = Pin;

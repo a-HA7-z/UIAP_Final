@@ -8,6 +8,7 @@
 #include "firstpage.h"
 #include "adminentry.h"
 #include "projectdata.h"
+#include "admin_costumerdetails.h"
 AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::AdminPanel) , admin(currentAdmin)
@@ -50,8 +51,10 @@ AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
     layout->setMenuBar(menuBar);
     this->setLayout(layout);
 
-    connect(ui->AdminOptions, &QListWidget::currentRowChanged,
-            ui->stackedWidget, &QStackedWidget::setCurrentIndex);
+    connect(ui->AdminOptions, &QListWidget::currentRowChanged,ui->stackedWidget, &QStackedWidget::setCurrentIndex);
+
+    connect(ui->CostumersList, &QListWidget::itemClicked, this, &AdminPanel::openCostumerDetailsPage);
+
 }
 
 void AdminPanel::loadCostumers()
@@ -82,6 +85,17 @@ void AdminPanel::on_AdminOptions_itemClicked(QListWidgetItem* item)
 
 }
 
+void AdminPanel::openCostumerDetailsPage(QListWidgetItem* item)
+{
+    QString username = item->text().split(" ").at(1);
+    Costumer* selected = ProjectData::data().findCostumer(username.toStdString());
+
+    if (selected) {
+        Admin_CostumerDetails* detailsPage = new Admin_CostumerDetails(this);
+        detailsPage->setCostumer(selected);
+        detailsPage->show();
+    }
+}
 
 AdminPanel::~AdminPanel()
 {

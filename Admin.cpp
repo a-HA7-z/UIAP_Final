@@ -6,6 +6,12 @@ using namespace std;
 Admin::Admin(string fName, string lName,string IDNumber, int age)
             : User(fName,lName,IDNumber,age){}
 
+Admin::Admin(const Admin &other)
+    : User(other.getFirstName(),other.getLastName(),other.getNationalCode(),other.getAge()) {
+    setUsername(other.getUsername());
+    setPassword(other.getPassword());
+}
+
 void Admin::addCostumer(CLinkedList<Costumer>& list, string fName, string lName, string IDNumber, int age, string user, string password) {
     Costumer newCostumer(fName,lName,IDNumber,age);
     newCostumer.setUsername(user);

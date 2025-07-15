@@ -4,7 +4,10 @@ Costumer::Costumer(string fName,string lName, string IDNumber, int age)
             : User(fName,lName,IDNumber,age) {}
 
 Costumer::Costumer(const Costumer &other)
-    : User(other.getFirstName(),other.getLastName(),other.getNationalCode(),other.getAge()) {}
+    : User(other.getFirstName(),other.getLastName(),other.getNationalCode(),other.getAge()) {
+    setUsername(other.getUsername());
+    setPassword(other.getPassword());
+}
 
 void Costumer::changeCardPin(int index,string newPin)
 {
