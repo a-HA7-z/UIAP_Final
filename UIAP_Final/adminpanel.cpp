@@ -7,6 +7,7 @@
 #include "ui_adminpanel.h"
 #include "firstpage.h"
 #include "adminentry.h"
+#include "projectdata.h"
 AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::AdminPanel) , admin(currentAdmin)
@@ -48,7 +49,39 @@ AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->setMenuBar(menuBar);
     this->setLayout(layout);
+
+    connect(ui->AdminOptions, &QListWidget::currentRowChanged,
+            ui->stackedWidget, &QStackedWidget::setCurrentIndex);
 }
+
+void AdminPanel::loadCostumers()
+{
+    ui->CostumersList->clear();
+
+    CNode<Costumer>* current = ProjectData::data().getCostumers().getHead();
+    while (current != nullptr) {
+        Costumer customer = current->getData();
+        QString displayText = QString::fromStdString(
+            "Username: " +customer.getUsername() + " | "
+            + customer.getFirstName() + " " +
+            customer.getLastName() );
+
+        ui->CostumersList->addItem(displayText);
+        current = current->getNext();
+    }
+}
+
+void AdminPanel::on_AdminOptions_itemClicked(QListWidgetItem* item)
+{
+    QString text = item->text();
+
+    if (text == "All Costumers") {
+        ui->stackedWidget->setCurrentWidget(ui->pageShowCostumers);
+        loadCostumers();
+    }
+
+}
+
 
 AdminPanel::~AdminPanel()
 {
