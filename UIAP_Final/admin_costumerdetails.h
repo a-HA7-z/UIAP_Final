@@ -27,6 +27,8 @@ private slots:
 
     void on_AddAccountButton_clicked();
 
+    void on_SaveChanges_clicked();
+
 private:
     Ui::Admin_CostumerDetails *ui;
     Costumer* currentCostumer;

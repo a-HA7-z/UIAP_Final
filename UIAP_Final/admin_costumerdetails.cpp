@@ -54,8 +54,6 @@ void Admin_CostumerDetails::on_BankAccounts_clicked()
     }
 }
 
-
-
 void Admin_CostumerDetails::on_AddBankAcount_clicked()
 {
     ui->DetailsStack->setCurrentWidget(ui->pageAddBankAccount);
@@ -72,6 +70,13 @@ void Admin_CostumerDetails::on_AddBankAcount_clicked()
 void Admin_CostumerDetails::on_EditInfo_clicked()
 {
     ui->DetailsStack->setCurrentWidget(ui->pageEditInfo);
+
+    ui->userEdit->setText(QString::fromStdString(currentCostumer->getUsername()));
+    ui->passEdit->setText(QString::fromStdString(currentCostumer->getPassword()));
+    ui->fNameEdit->setText(QString::fromStdString(currentCostumer->getFirstName()));
+    ui->lNameEdit->setText(QString::fromStdString(currentCostumer->getLastName()));
+    ui->nationalCodeEdit->setText(QString::fromStdString(currentCostumer->getNationalCode()));
+    ui->ageEdit->setText(QString::number(currentCostumer->getAge()));
 }
 
 
@@ -138,4 +143,56 @@ void Admin_CostumerDetails::on_AddAccountButton_clicked()
     ui->Balance->clear();
 }
 
+
+
+void Admin_CostumerDetails::on_SaveChanges_clicked()
+{
+    QString username = ui->userEdit->text().trimmed();
+    QString password = ui->passEdit->text();
+    QString fName = ui->fNameEdit->text().trimmed();
+    QString lName = ui->lNameEdit->text().trimmed();
+    QString nationalCode = ui->nationalCodeEdit->text().trimmed();
+    QString ageStr = ui->ageEdit->text().trimmed();
+
+    if (username.isEmpty() || password.isEmpty() || fName.isEmpty() ||
+        lName.isEmpty() || nationalCode.isEmpty() || ageStr.isEmpty()) {
+        QMessageBox::warning(this, "Warning", "You must fill in all the fields.");
+        return;
+    }
+
+    bool ok;
+    int age = ageStr.toInt(&ok);
+    if (!ok || age <= 0) {
+        QMessageBox::warning(this, "Invalid Age", "Age must be a valid positive number.");
+        return;
+    }
+
+    if (username.toStdString() != currentCostumer->getUsername())
+    {
+        Costumer* existingCostumer = ProjectData::data().findCostumer(username.toStdString());
+        if(existingCostumer != nullptr)
+        {
+            QMessageBox::warning(this, "Used username", "This Username has already been used!");
+            return;
+        }
+        else { currentCostumer->setUsername(username.toStdString()); }
+    }
+
+    if (password.toStdString() != currentCostumer->getPassword())
+        currentCostumer->setPassword(password.toStdString());
+
+    if (fName.toStdString() != currentCostumer->getFirstName())
+        currentCostumer->setFirstName(fName.toStdString());
+
+    if (lName.toStdString() != currentCostumer->getLastName())
+        currentCostumer->setLastName(lName.toStdString());
+
+    if (nationalCode.toStdString() != currentCostumer->getNationalCode())
+        currentCostumer->setNationalCode(nationalCode.toStdString());
+
+    if (age != currentCostumer->getAge())
+        currentCostumer->setAge(age);
+
+    QMessageBox::information(this, "Saved", "Costumer information updated successfully.");
+}
 
