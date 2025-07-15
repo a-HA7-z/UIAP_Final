@@ -96,6 +96,11 @@ void AdminPanel::on_AdminOptions_itemClicked(QListWidgetItem* item)
         ui->stackedWidget->setCurrentWidget(ui->allBankAccounts);
         loadBankAccounts();
     }
+
+    if(text == "Other Admins"){
+        ui->stackedWidget->setCurrentWidget(ui->otherAdminsPage);
+        loadAdmins();
+    }
 }
 
 void AdminPanel::openCostumerDetailsPage(QListWidgetItem* item)
@@ -138,6 +143,28 @@ void AdminPanel::loadBankAccounts(){
         if(current->getNext() != nullptr){
             ui->AccountsList->addItem("--------------------------");
         }
+        current = current->getNext();
+    }
+}
+
+void AdminPanel::loadAdmins(){
+    ui->AdminsList->clear();
+
+    CLinkedList<Admin>& admins = ProjectData::data().getAdmins();
+    CNode<Admin>* current = admins.getHead();
+
+    while (current != nullptr) {
+        Admin anotherAdmin = current->getData();
+        if(anotherAdmin.getUsername() == admin->getUsername()){
+            current = current->getNext();
+            continue;
+        }
+
+        QString content = QString::fromStdString(
+            "First name: " + anotherAdmin.getFirstName() + " | Last name: " + anotherAdmin.getLastName()
+            + " | Age: ");
+        content += QString::number(anotherAdmin.getAge());
+        ui->AdminsList->addItem(content);
         current = current->getNext();
     }
 }

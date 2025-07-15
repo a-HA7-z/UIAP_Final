@@ -95,7 +95,21 @@
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="otherAdminsPage"/>
+   <widget class="QWidget" name="otherAdminsPage">
+    <widget class="QListWidget" name="AdminsList">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>531</width>
+       <height>551</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>

@@ -17,6 +17,7 @@ public:
     explicit AdminPanel(Admin* currentAdmin,QWidget *parent = nullptr);
     void loadCostumers();
     void loadBankAccounts();
+    void loadAdmins();
     ~AdminPanel();
 
 private:
