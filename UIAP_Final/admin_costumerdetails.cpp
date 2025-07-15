@@ -14,6 +14,7 @@ Admin_CostumerDetails::Admin_CostumerDetails(Admin* currentAdmin,QWidget *parent
 void Admin_CostumerDetails::setCostumer(Costumer* costumer)
 {
     currentCostumer = costumer;
+    on_BankAccounts_clicked();
 }
 
 Admin_CostumerDetails::~Admin_CostumerDetails()
@@ -62,6 +63,7 @@ void Admin_CostumerDetails::on_AddBankAcount_clicked()
 
     if (accounts.getSize() >= 5) {
         QMessageBox::warning(this, "Error", "This costumer already has 5 bank accounts and cannot have more!");
+        on_BankAccounts_clicked();
         return;
     }
 }
@@ -194,5 +196,6 @@ void Admin_CostumerDetails::on_SaveChanges_clicked()
         currentCostumer->setAge(age);
 
     QMessageBox::information(this, "Saved", "Costumer information updated successfully.");
+    on_BankAccounts_clicked();
 }
 
