@@ -2,7 +2,6 @@
 #include <QMenu>
 #include <QAction>
 #include <QVBoxLayout>
-
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
 #include "firstpage.h"
@@ -13,7 +12,7 @@ AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::AdminPanel) , admin(currentAdmin)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);    
 
     QMenuBar* menuBar = new QMenuBar(this);
 
@@ -55,6 +54,16 @@ AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
 
     connect(ui->CostumersList, &QListWidget::itemClicked, this, &AdminPanel::openCostumerDetailsPage);
 
+    connect(ui->AdminOptions, &QListWidget::currentRowChanged, this, &AdminPanel::on_AdminOptions_rowChanged);
+
+}
+
+void AdminPanel::on_AdminOptions_rowChanged(int index)
+{
+    QListWidgetItem* item = ui->AdminOptions->item(index);
+    if (item) {
+        on_AdminOptions_itemClicked(item);
+    }
 }
 
 void AdminPanel::loadCostumers()
@@ -65,8 +74,8 @@ void AdminPanel::loadCostumers()
     while (current != nullptr) {
         Costumer customer = current->getData();
         QString displayText = QString::fromStdString(
-            "Username: " +customer.getUsername() + " | "
-            + customer.getFirstName() + " " +
+            "Username: " +customer.getUsername() + " | First name: "
+            + customer.getFirstName() + " | Last name: " +
             customer.getLastName() );
 
         ui->CostumersList->addItem(displayText);
@@ -83,6 +92,10 @@ void AdminPanel::on_AdminOptions_itemClicked(QListWidgetItem* item)
         loadCostumers();
     }
 
+    if(text == "All Bank Accounts"){
+        ui->stackedWidget->setCurrentWidget(ui->allBankAccounts);
+        loadBankAccounts();
+    }
 }
 
 void AdminPanel::openCostumerDetailsPage(QListWidgetItem* item)
@@ -95,6 +108,37 @@ void AdminPanel::openCostumerDetailsPage(QListWidgetItem* item)
         detailsPage->setCostumer(selected);
         this->close();
         detailsPage->show();
+    }
+}
+
+void AdminPanel::loadBankAccounts(){
+    ui->AccountsList->clear();
+
+    CLinkedList<std::shared_ptr<BankAccount>>& accounts = ProjectData::data().getBankAccounts();
+    CNode<std::shared_ptr<BankAccount>>* current = accounts.getHead();
+
+    while (current != nullptr) {
+        std::shared_ptr<BankAccount> account = current->getData();
+
+        QString line1 = QString::fromStdString(
+            "Type: " + account->showType() + " | Card Number: " + account->getCardNumber()
+            );
+
+        QString line2 = QString::fromStdString(
+            "Account Number: " + account->getAccountNumber() + " | IBAN: " + account->getIBANNumber() + " | CVV2: " + account->getCVV2() + " | Exp Date: " + account->getExpDate()
+            );
+
+        QString line3 = QString::fromStdString(
+            "PIN: " + account->getPIN() + " | Static Password: " + account->getStaticPassword() + " | Balance: " + std::to_string(account->getBalance())
+            );
+
+        ui->AccountsList->addItem(line1);
+        ui->AccountsList->addItem(line2);
+        ui->AccountsList->addItem(line3);
+        if(current->getNext() != nullptr){
+            ui->AccountsList->addItem("--------------------------");
+        }
+        current = current->getNext();
     }
 }
 

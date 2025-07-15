@@ -16,6 +16,7 @@ class AdminPanel : public QWidget
 public:
     explicit AdminPanel(Admin* currentAdmin,QWidget *parent = nullptr);
     void loadCostumers();
+    void loadBankAccounts();
     ~AdminPanel();
 
 private:
@@ -25,7 +26,7 @@ private:
 private slots:
     void on_AdminOptions_itemClicked(QListWidgetItem* item);
     void openCostumerDetailsPage(QListWidgetItem* item);
-
+    void on_AdminOptions_rowChanged(int index);
 };
 
 #endif // ADMINPANEL_H

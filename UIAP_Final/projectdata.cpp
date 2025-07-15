@@ -14,6 +14,8 @@ ProjectData::ProjectData(){
     Costumer& customerRef = getCostumers().getHead()->getData();
     defaultAdmin.createBankAccount(customerRef,0,"5859585958595859","9876543210","IR1005859",
                                     "1111","07/07","1111","1111",700000);
+
+    addBankAccount(customerRef.getBankAccounts().getTail()->getData());
 }
 
 ProjectData& ProjectData::data() {

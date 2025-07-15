@@ -63,7 +63,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="pageShowCostumers">
     <widget class="QListWidget" name="CostumersList">
@@ -75,10 +75,27 @@
        <height>551</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
+     </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="page_2"/>
-   <widget class="QWidget" name="page_3"/>
+   <widget class="QWidget" name="allBankAccounts">
+    <widget class="QListWidget" name="AccountsList">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>531</width>
+       <height>551</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="otherAdminsPage"/>
   </widget>
  </widget>
  <resources/>
