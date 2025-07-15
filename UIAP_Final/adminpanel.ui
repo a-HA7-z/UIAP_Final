@@ -82,5 +82,25 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>AdminOptions</sender>
+   <signal>itemClicked(QListWidgetItem*)</signal>
+   <receiver>AdminPanel</receiver>
+   <slot>on_AdminOptions_itemClicked(QListWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>236</x>
+     <y>250</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>312</x>
+     <y>320</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_AdminOptions_itemClicked(QListWidgetItem*)</slot>
+ </slots>
 </ui>

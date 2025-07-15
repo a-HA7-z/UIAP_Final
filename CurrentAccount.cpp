@@ -10,6 +10,6 @@ void CurrentAccount::issueCheque() {
     cout << "Issuing a cheque from current account..." << endl;
 }
 
-void CurrentAccount::showType() {
-    cout << "Current Bank Account" << endl;
+string CurrentAccount::showType() {
+    return "CurrentAccount";
 }

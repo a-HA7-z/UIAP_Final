@@ -35,5 +35,5 @@ public:
 
     virtual void addMoney(long long int money);
 
-    virtual void showType() = 0;
+    virtual string showType() = 0;
 };

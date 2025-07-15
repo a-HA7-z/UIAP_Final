@@ -11,5 +11,5 @@ public:
 
     double calculateInterest(int );
 
-    virtual void showType();
+    virtual string showType();
 };

@@ -11,6 +11,7 @@ INCLUDEPATH += ..
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    admin_costumerdetails.cpp \
     adminentry.cpp \
     adminloginpage.cpp \
     adminpanel.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
     projectdata.cpp
 
 HEADERS += \
+    admin_costumerdetails.h \
     adminentry.h \
     adminloginpage.h \
     adminpanel.h \
@@ -44,6 +46,7 @@ HEADERS += \
     projectdata.h
 
 FORMS += \
+    admin_costumerdetails.ui \
     adminentry.ui \
     adminloginpage.ui \
     adminpanel.ui \

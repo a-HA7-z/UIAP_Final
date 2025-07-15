@@ -11,5 +11,5 @@ public:
 
     void issueCheque();
 
-    void showType();
+    string showType();
 };

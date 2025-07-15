@@ -11,6 +11,6 @@ double DepositAccount::calculateInterest(int months) {
     return (getBalance() * rate * months) / 12.0;
 }
 
-void DepositAccount::showType() {
-    std::cout << "Deposit Bank Account" << endl;
+string DepositAccount::showType() {
+    return "DepositAccount";
 }

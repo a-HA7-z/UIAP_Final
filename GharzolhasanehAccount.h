@@ -11,5 +11,5 @@ public:
 
     void applyForLoan();
 
-    void showType();
+    string showType();
 };
