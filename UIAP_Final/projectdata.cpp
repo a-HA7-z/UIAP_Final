@@ -2,13 +2,13 @@
 
 ProjectData::ProjectData(){
     Admin defaultAdmin("admin","default","1234567890",20);
-    defaultAdmin.setUsername("adusername");
-    defaultAdmin.setPassword("adpassword");
+    defaultAdmin.setUsername("aduser");
+    defaultAdmin.setPassword("adpass");
     addAdmin(defaultAdmin);
 
     Costumer defaultCostumer("costumer","default","9876543210",20);
-    defaultCostumer.setUsername("cousername");
-    defaultCostumer.setPassword("copassword");
+    defaultCostumer.setUsername("couser");
+    defaultCostumer.setPassword("copass");
     addCostumer(defaultCostumer);
 
     Costumer& customerRef = getCostumers().getHead()->getData();

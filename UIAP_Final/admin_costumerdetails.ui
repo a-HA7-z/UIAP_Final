@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="pageBankAccounts">
     <widget class="QListWidget" name="AccountsList">
@@ -42,17 +42,7 @@ color: rgb(255, 255, 255);</string>
     </widget>
    </widget>
    <widget class="QWidget" name="pageAddBankAccount">
-    <widget class="QLineEdit" name="lineEdit">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>170</y>
-       <width>200</width>
-       <height>30</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="IBAN">
      <property name="geometry">
       <rect>
        <x>520</x>
@@ -62,7 +52,7 @@ color: rgb(255, 255, 255);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="CardNumber">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -72,7 +62,7 @@ color: rgb(255, 255, 255);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="CardPIN">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -82,7 +72,7 @@ color: rgb(255, 255, 255);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
+    <widget class="QLineEdit" name="CVV2">
      <property name="geometry">
       <rect>
        <x>520</x>
@@ -92,7 +82,7 @@ color: rgb(255, 255, 255);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_6">
+    <widget class="QLineEdit" name="ExpDate">
      <property name="geometry">
       <rect>
        <x>280</x>
@@ -102,7 +92,7 @@ color: rgb(255, 255, 255);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_7">
+    <widget class="QLineEdit" name="Balance">
      <property name="geometry">
       <rect>
        <x>520</x>
@@ -112,7 +102,7 @@ color: rgb(255, 255, 255);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_8">
+    <widget class="QLineEdit" name="StaticPassword">
      <property name="geometry">
       <rect>
        <x>280</x>
@@ -126,13 +116,13 @@ color: rgb(255, 255, 255);</string>
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>130</y>
+       <y>90</y>
        <width>200</width>
        <height>40</height>
       </rect>
      </property>
      <property name="text">
-      <string>Account type</string>
+      <string>Select Account type</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
@@ -255,7 +245,7 @@ color: rgb(255, 255, 255);</string>
       <string>Account number</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_9">
+    <widget class="QLineEdit" name="AccountNumber">
      <property name="geometry">
       <rect>
        <x>270</x>
@@ -263,6 +253,58 @@ color: rgb(255, 255, 255);</string>
        <width>200</width>
        <height>30</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="Deposite">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>160</y>
+       <width>150</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Deposite Account</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="Gharz">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>190</y>
+       <width>150</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Gharzolhasaneh</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="Current">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>130</y>
+       <width>150</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Current Account</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="AddAccountButton">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>450</y>
+       <width>83</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add</string>
      </property>
     </widget>
    </widget>

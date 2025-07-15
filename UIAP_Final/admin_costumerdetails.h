@@ -25,6 +25,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_AddAccountButton_clicked();
+
 private:
     Ui::Admin_CostumerDetails *ui;
     Costumer* currentCostumer;
