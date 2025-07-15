@@ -91,8 +91,9 @@ void AdminPanel::openCostumerDetailsPage(QListWidgetItem* item)
     Costumer* selected = ProjectData::data().findCostumer(username.toStdString());
 
     if (selected) {
-        Admin_CostumerDetails* detailsPage = new Admin_CostumerDetails(this);
+        Admin_CostumerDetails* detailsPage = new Admin_CostumerDetails(admin);
         detailsPage->setCostumer(selected);
+        this->close();
         detailsPage->show();
     }
 }

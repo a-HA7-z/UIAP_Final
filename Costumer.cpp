@@ -9,6 +9,10 @@ Costumer::Costumer(const Costumer &other)
     setPassword(other.getPassword());
 }
 
+CLinkedList<std::shared_ptr<BankAccount>>& Costumer::getBankAccounts() {
+    return BankAccounts;
+}
+
 void Costumer::changeCardPin(int index,string newPin)
 {
     CNode<shared_ptr<BankAccount>>* targetCard = BankAccounts.getHead();
