@@ -106,6 +106,10 @@ void AdminPanel::on_AdminOptions_itemClicked(QListWidgetItem* item)
     if(text == "Search Bank Account"){
         ui->stackedWidget->setCurrentWidget(ui->SearchBankAccount);
     }
+
+    if(text == "Add Costumer"){
+        ui->stackedWidget->setCurrentWidget(ui->addCostumerPage);
+    }
 }
 
 void AdminPanel::openCostumerDetailsPage(QListWidgetItem* item)
@@ -234,5 +238,57 @@ void AdminPanel::on_showInfoButton_clicked()
         ui->ownerLabel->clear();
         ui->accountInfoLabel->clear();
     }
+}
+
+
+void AdminPanel::on_pushButton_clicked()
+{
+    QString fName = ui->fNameEdit->text();
+    QString lName = ui->lNameEdit->text();
+    QString nationalCode = ui->nationalCodeEdit->text();
+    QString ageStr = ui->ageEdit->text();
+    QString username = ui->userEdit->text();
+    QString password = ui->passEdit->text();
+
+    if (fName.isEmpty() || lName.isEmpty() || nationalCode.isEmpty() || ageStr.isEmpty() || username.isEmpty() || password.isEmpty()) {
+        QMessageBox::warning(this, "Error", "You must fill in all the fields!");
+        return;
+    }
+
+    if (nationalCode.length() > 10 || !nationalCode.contains(QRegularExpression("^[0-9]+$"))) {
+        QMessageBox::warning(this, "Error", "National Code must be numeric and at most 10 digits.");
+        return;
+    }
+
+    bool ok;
+    int age = ageStr.toInt(&ok);
+    if (!ok || age <= 0) {
+        QMessageBox::warning(this, "Error", "Age must be a valid positive number.");
+        return;
+    }
+
+    CNode<Costumer>* current = ProjectData::data().getCostumers().getHead();
+    while (current != nullptr) {
+        if (current->getData().getUsername() == username.toStdString()) {
+            QMessageBox::warning(this, "Error", "Username already exists.");
+            return;
+        }
+        current = current->getNext();
+    }
+
+    Costumer newCustomer(fName.toStdString(), lName.toStdString(), nationalCode.toStdString(), age);
+    newCustomer.setUsername(username.toStdString());
+    newCustomer.setPassword(password.toStdString());
+
+    ProjectData::data().getCostumers().listPushBack(newCustomer);
+
+    QMessageBox::information(this, "Success", "Customer added successfully:)");
+
+    ui->fNameEdit->clear();
+    ui->lNameEdit->clear();
+    ui->nationalCodeEdit->clear();
+    ui->ageEdit->clear();
+    ui->userEdit->clear();
+    ui->passEdit->clear();
 }
 
