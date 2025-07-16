@@ -83,6 +83,10 @@ void CostumerPanel::on_CostumerOptions_itemClicked(QListWidgetItem *item)
         ui->stackedWidget->setCurrentWidget(ui->allAccounts);
         loadAllBankAccounts();
     }
+
+    if(text == "Bank Account Search"){
+        ui->stackedWidget->setCurrentWidget(ui->AccountSearch);
+    }
 }
 
 void CostumerPanel::loadMyAccounts(){
@@ -163,4 +167,47 @@ void CostumerPanel::loadAllBankAccounts()
     }
 }
 
+
+
+void CostumerPanel::on_searchButton_clicked()
+{
+    QString cardNumber = ui->cardNumberEdit->text().trimmed();
+
+    if (cardNumber.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please enter the card number.");
+        return;
+    }
+
+    CNode<Costumer>* costumerNode = ProjectData::data().getCostumers().getHead();
+
+    while (costumerNode != nullptr) {
+        Costumer& costumer = costumerNode->getData();
+
+        const CLinkedList<std::shared_ptr<BankAccount>>& accounts = costumer.getBankAccounts();
+        CNode<std::shared_ptr<BankAccount>>* current = accounts.getHead();
+
+        while (current != nullptr) {
+            std::shared_ptr<BankAccount> account = current->getData();
+
+            if (account->getCardNumber() == cardNumber.toStdString()) {
+                QString info;
+                info += "Owner: " + QString::fromStdString(costumer.getFirstName()) + " "
+                        + QString::fromStdString(costumer.getLastName()) + "\n";
+                info += "Type: " + QString::fromStdString(account->showType()) + "\n";
+                info += "Card Number: " + QString::fromStdString(account->getCardNumber()) + "\n";
+                info += "Account Number: " + QString::fromStdString(account->getAccountNumber()) + "\n";
+                info += "IBAN: " + QString::fromStdString(account->getIBANNumber());
+
+                ui->infoLabel->setText(info);
+                return;
+            }
+
+            current = current->getNext();
+        }
+
+        costumerNode = costumerNode->getNext();
+    }
+
+    ui->infoLabel->setText("Bank account not found.");
+}
 
