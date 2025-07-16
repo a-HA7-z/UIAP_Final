@@ -37,7 +37,7 @@
    </item>
    <item>
     <property name="text">
-     <string>Search a Bank Account</string>
+     <string>Bank Account Search</string>
     </property>
    </item>
    <item>
@@ -80,6 +80,16 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="myAccountsList">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>40</y>
+       <width>531</width>
+       <height>361</height>
+      </rect>
      </property>
     </widget>
    </widget>

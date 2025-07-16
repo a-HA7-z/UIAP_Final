@@ -15,6 +15,7 @@ class CostumerPanel : public QWidget
 public:
     explicit CostumerPanel(Costumer* currentCostumer,QWidget *parent = nullptr);
     ~CostumerPanel();
+    void loadMyAccounts();
 
 private:
     Ui::CostumerPanel *ui;
