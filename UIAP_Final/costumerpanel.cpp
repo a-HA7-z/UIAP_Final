@@ -1,5 +1,6 @@
 #include "costumerpanel.h"
 #include "ui_costumerpanel.h"
+#include "projectdata.h"
 
 CostumerPanel::CostumerPanel(Costumer* currentCostumer,QWidget *parent)
     : QWidget(parent)
@@ -33,6 +34,11 @@ void CostumerPanel::on_CostumerOptions_itemClicked(QListWidgetItem *item)
     if(text == "My Bank Accounts"){
         ui->stackedWidget->setCurrentWidget(ui->MyBankAccounts);
         loadMyAccounts();
+    }
+
+    if(text == "All Bank Accounts"){
+        ui->stackedWidget->setCurrentWidget(ui->allAccounts);
+        loadAllBankAccounts();
     }
 }
 
@@ -71,4 +77,47 @@ void CostumerPanel::loadMyAccounts(){
         current = current->getNext();
     }
 }
+
+void CostumerPanel::loadAllBankAccounts()
+{
+    ui->allBankAccounts->clear();
+
+    CNode<Costumer>* costumerNode = ProjectData::data().getCostumers().getHead();
+
+    while (costumerNode != nullptr) {
+        Costumer& costumer = costumerNode->getData();
+
+        QString ownerInfo = QString::fromStdString("Owner: " + costumer.getFirstName() + " " + costumer.getLastName());
+
+        const CLinkedList<std::shared_ptr<BankAccount>>& accounts = costumer.getBankAccounts();
+        CNode<std::shared_ptr<BankAccount>>* current = accounts.getHead();
+
+        while (current != nullptr) {
+            std::shared_ptr<BankAccount> account = current->getData();
+
+            QString line1 = QString::fromStdString(
+                "Type: " + account->showType() +
+                " | Card Number: " + account->getCardNumber());
+
+            QString line2 = QString::fromStdString(
+                "Account Number: " + account->getAccountNumber() +
+                " | IBAN: " + account->getIBANNumber());
+
+            ui->allBankAccounts->addItem(ownerInfo);
+            ui->allBankAccounts->addItem(line1);
+            ui->allBankAccounts->addItem(line2);
+
+            if (current->getNext() != nullptr)
+                ui->allBankAccounts->addItem("----------------------------");
+
+            current = current->getNext();
+        }
+
+        if (costumerNode->getNext() != nullptr)
+            ui->allBankAccounts->addItem("================================");
+
+        costumerNode = costumerNode->getNext();
+    }
+}
+
 

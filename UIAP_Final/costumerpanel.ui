@@ -97,7 +97,34 @@
    <widget class="QWidget" name="page_4"/>
    <widget class="QWidget" name="page_5"/>
    <widget class="QWidget" name="page_6"/>
-   <widget class="QWidget" name="page_2"/>
+   <widget class="QWidget" name="allAccounts">
+    <widget class="QListWidget" name="allBankAccounts">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>531</width>
+       <height>361</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>531</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>All Bank Accounts</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>

@@ -16,6 +16,7 @@ public:
     explicit CostumerPanel(Costumer* currentCostumer,QWidget *parent = nullptr);
     ~CostumerPanel();
     void loadMyAccounts();
+    void loadAllBankAccounts();
 
 private:
     Ui::CostumerPanel *ui;
