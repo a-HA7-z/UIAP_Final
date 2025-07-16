@@ -6,13 +6,89 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1044</width>
-    <height>639</height>
+    <width>1102</width>
+    <height>701</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QListWidget" name="CostumerOptions">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>160</y>
+     <width>331</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>My Bank Accounts</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>All Bank Accounts</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Search a Bank Account</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Card to Card</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Change the FIRST card password</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Change the SECOND card password</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>80</y>
+     <width>531</width>
+     <height>511</height>
+    </rect>
+   </property>
+   <widget class="QWidget" name="MyBankAccounts">
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>531</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>My Bank Accounts</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_3"/>
+   <widget class="QWidget" name="page_4"/>
+   <widget class="QWidget" name="page_5"/>
+   <widget class="QWidget" name="page_6"/>
+   <widget class="QWidget" name="page_2"/>
+  </widget>
  </widget>
  <resources/>
  <connections/>

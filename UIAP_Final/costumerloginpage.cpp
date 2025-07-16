@@ -42,7 +42,7 @@ void CostumerLoginPage::on_pushButton_clicked()
         return;
     }
     this->close();
-    CostumerPanel* panel = new CostumerPanel;
+    CostumerPanel* panel = new CostumerPanel(costumer);
     panel->show();
 }
 
