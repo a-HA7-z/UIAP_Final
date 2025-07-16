@@ -319,3 +319,99 @@ void CostumerPanel::on_savePinButton_clicked()
     ui->savePinButton->hide();
 }
 
+
+void CostumerPanel::on_checkCardNumber_2_clicked()
+{
+    QString cardNumber = ui->cardNumberLineEdit_2->text();
+
+    if (cardNumber.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please enter the card number.");
+        return;
+    }
+
+    const CLinkedList<std::shared_ptr<BankAccount>>& accounts = costumer->getBankAccounts();
+    CNode<std::shared_ptr<BankAccount>>* current = accounts.getHead();
+
+    std::shared_ptr<BankAccount> targetAccount = nullptr;
+
+    while (current != nullptr) {
+        if (current->getData()->getCardNumber() == cardNumber.toStdString()) {
+            targetAccount = current->getData();
+            break;
+        }
+        current = current->getNext();
+    }
+
+    if (targetAccount == nullptr) {
+        QMessageBox::warning(this, "Error", "Card not found!");
+        return;
+    }
+
+    QString info = QString::fromStdString("Type: " + targetAccount->showType() +
+                                          "\nAccount Number: " + targetAccount->getAccountNumber() +
+                                          "\nIBAN: " + targetAccount->getIBANNumber() +
+                                          "\nCVV2: " + targetAccount->getCVV2() +
+                                          "\nExp Date: " + targetAccount->getExpDate() +
+                                          "\nCurrent SECOND password: " + targetAccount->getStaticPassword());
+
+    ui->cardInfoLabel_2->setText(info);
+    ui->cardInfoLabel_2->show();
+    ui->label_10->show();
+    ui->staticPassEdit->show();
+    ui->saveStaticPass->show();
+}
+
+
+void CostumerPanel::on_saveStaticPass_clicked()
+{
+    QString cardNumber = ui->cardNumberLineEdit_2->text();
+    QString newPass = ui->staticPassEdit->text();
+
+    if (cardNumber.isEmpty() || newPass.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Card number and new Password must not be empty.");
+        return;
+    }
+
+    if (newPass.length() != 4 || newPass.contains(QRegularExpression("[^0-9]"))) {
+        QMessageBox::warning(this, "Error", "Second Password must be exactly 4 digits.");
+        return;
+    }
+
+    const CLinkedList<std::shared_ptr<BankAccount>>& accounts = costumer->getBankAccounts();
+    CNode<std::shared_ptr<BankAccount>>* current = accounts.getHead();
+
+    bool cardFound = false;
+    while (current != nullptr) {
+        if (current->getData()->getCardNumber() == cardNumber.toStdString()) {
+            cardFound = true;
+            current->getData()->setStaticPassword(newPass.toStdString());
+            break;
+        }
+        current = current->getNext();
+    }
+
+    if (!cardFound) {
+        QMessageBox::warning(this, "Error", "Card not found.");
+        return;
+    }
+
+    std::shared_ptr<BankAccount> globalAccount = ProjectData::data().findBankAccount(cardNumber.toStdString());
+
+    if (!globalAccount) {
+        QMessageBox::warning(this, "Error", "Bank account not found.");
+        return;
+    }
+
+    globalAccount->setStaticPassword(newPass.toStdString());
+
+    QMessageBox::information(this, "Success", "PIN changed successfully.");
+
+    ui->staticPassEdit->clear();
+    ui->cardNumberLineEdit_2->clear();
+    ui->cardInfoLabel_2->clear();
+    ui->cardInfoLabel_2->hide();
+    ui->label_10->hide();
+    ui->staticPassEdit->hide();
+    ui->saveStaticPass->hide();
+}
+

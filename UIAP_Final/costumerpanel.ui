@@ -93,6 +93,34 @@
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="allAccounts">
+    <widget class="QListWidget" name="allBankAccounts">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>531</width>
+       <height>361</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>531</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>All Bank Accounts</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
    <widget class="QWidget" name="AccountSearch">
     <widget class="QLineEdit" name="cardNumberEdit">
      <property name="geometry">
@@ -305,32 +333,101 @@
       <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
     </widget>
-   </widget>
-   <widget class="QWidget" name="allAccounts">
-    <widget class="QListWidget" name="allBankAccounts">
+    <widget class="QLineEdit" name="staticPassEdit">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>50</y>
-       <width>531</width>
-       <height>361</height>
+       <x>190</x>
+       <y>400</y>
+       <width>151</width>
+       <height>41</height>
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="label_10">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>531</width>
-       <height>51</height>
+       <x>130</x>
+       <y>360</y>
+       <width>281</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>All Bank Accounts</string>
+      <string>Enter the new Second (static) Password</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="saveStaticPass">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>460</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cardInfoLabel_2">
+     <property name="geometry">
+      <rect>
+       <x>92</x>
+       <y>230</y>
+       <width>351</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>60</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Enter the card number of your desired Card</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="cardNumberLineEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>165</x>
+       <y>120</y>
+       <width>200</width>
+       <height>28</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="checkCardNumber_2">
+     <property name="geometry">
+      <rect>
+       <x>215</x>
+       <y>170</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>check</string>
      </property>
     </widget>
    </widget>

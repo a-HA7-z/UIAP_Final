@@ -28,6 +28,8 @@ private slots:
     void on_searchButton_clicked();
     void on_checkCardNumber_clicked();
     void on_savePinButton_clicked();
+    void on_checkCardNumber_2_clicked();
+    void on_saveStaticPass_clicked();
 };
 
 #endif // COSTUMERPANEL_H
