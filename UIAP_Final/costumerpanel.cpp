@@ -87,6 +87,18 @@ void CostumerPanel::on_CostumerOptions_itemClicked(QListWidgetItem *item)
     if(text == "Bank Account Search"){
         ui->stackedWidget->setCurrentWidget(ui->AccountSearch);
     }
+
+    if(text == "Card to Card"){
+        ui->stackedWidget->setCurrentWidget(ui->cardToCardPage);
+    }
+
+    if(text == "Change the FIRST card password"){
+        ui->stackedWidget->setCurrentWidget(ui->changePinPage);
+    }
+
+    if(text == "Change the Second card password"){
+        ui->stackedWidget->setCurrentWidget(ui->changeStaticPass);
+    }
 }
 
 void CostumerPanel::loadMyAccounts(){
@@ -209,5 +221,95 @@ void CostumerPanel::on_searchButton_clicked()
     }
 
     ui->infoLabel->setText("Bank account not found.");
+}
+
+
+void CostumerPanel::on_checkCardNumber_clicked()
+{
+    QString cardNumber = ui->cardNumberLineEdit->text();
+
+    if (cardNumber.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please enter the card number.");
+        return;
+    }
+
+    const CLinkedList<std::shared_ptr<BankAccount>>& accounts = costumer->getBankAccounts();
+    CNode<std::shared_ptr<BankAccount>>* current = accounts.getHead();
+
+    std::shared_ptr<BankAccount> targetAccount = nullptr;
+
+    while (current != nullptr) {
+        if (current->getData()->getCardNumber() == cardNumber.toStdString()) {
+            targetAccount = current->getData();
+            break;
+        }
+        current = current->getNext();
+    }
+
+    if (targetAccount == nullptr) {
+        QMessageBox::warning(this, "Error", "Card not found!");
+        return;
+    }
+
+    QString info = QString::fromStdString("Type: " + targetAccount->showType() +
+                                "\nAccount Number: " + targetAccount->getAccountNumber() +
+                                "\nIBAN: " + targetAccount->getIBANNumber() +
+                                "\nCVV2: " + targetAccount->getCVV2() +
+                                "\nExp Date: " + targetAccount->getExpDate() +
+                                "\nCurrent FIRST password: " + targetAccount->getPIN());
+
+    ui->cardInfoLabel->setText(info);
+
+    ui->label_9->show();
+    ui->PinLineEdit->show();
+    ui->savePinButton->show();
+}
+
+
+void CostumerPanel::on_savePinButton_clicked()
+{
+    QString cardNumber = ui->cardNumberLineEdit->text();
+    QString newPin = ui->PinLineEdit->text();
+
+    if (cardNumber.isEmpty() || newPin.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Card number and new PIN must not be empty.");
+        return;
+    }
+
+    const CLinkedList<std::shared_ptr<BankAccount>>& accounts = costumer->getBankAccounts();
+    CNode<std::shared_ptr<BankAccount>>* current = accounts.getHead();
+
+    bool cardFound = false;
+    while (current != nullptr) {
+        if (current->getData()->getCardNumber() == cardNumber.toStdString()) {
+            cardFound = true;
+            current->getData()->setPIN(newPin.toStdString());
+            break;
+        }
+        current = current->getNext();
+    }
+
+    if (!cardFound) {
+        QMessageBox::warning(this, "Error", "Card not found.");
+        return;
+    }
+
+    std::shared_ptr<BankAccount> globalAccount = ProjectData::data().findBankAccount(cardNumber.toStdString());
+
+    if (!globalAccount) {
+        QMessageBox::warning(this, "Error", "Bank account not found.");
+        return;
+    }
+
+    globalAccount->setPIN(newPin.toStdString());
+
+    QMessageBox::information(this, "Success", "PIN changed successfully.");
+
+    ui->PinLineEdit->clear();
+    ui->cardNumberLineEdit->clear();
+    ui->label_9->clear();
+    ui->label_9->hide();
+    ui->PinLineEdit->hide();
+    ui->savePinButton->hide();
 }
 

@@ -26,6 +26,8 @@ private slots:
     void on_CostumerOptions_currentRowChanged(int index);
     void on_CostumerOptions_itemClicked(QListWidgetItem *item);
     void on_searchButton_clicked();
+    void on_checkCardNumber_clicked();
+    void on_savePinButton_clicked();
 };
 
 #endif // COSTUMERPANEL_H
