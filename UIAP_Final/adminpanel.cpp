@@ -3,6 +3,7 @@
 #include <QAction>
 #include <QVBoxLayout>
 #include <QMessageBox>
+#include <QRegularExpression>
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
 #include "firstpage.h"
@@ -59,6 +60,8 @@ AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
 
 }
 
+static const QRegularExpression onlyDigits("[^0-9]");
+
 void AdminPanel::on_AdminOptions_rowChanged(int index)
 {
     QListWidgetItem* item = ui->AdminOptions->item(index);
@@ -113,6 +116,11 @@ void AdminPanel::on_AdminOptions_itemClicked(QListWidgetItem* item)
 
     if(text == "Remove Costumer"){
         ui->stackedWidget->setCurrentWidget(ui->RemoveCostumerPage);
+    }
+
+    if(text == "Edit my Info"){
+        ui->stackedWidget->setCurrentWidget(ui->EditMyInfo);
+        loadAdminInfo();
     }
 }
 
@@ -259,7 +267,7 @@ void AdminPanel::on_pushButton_clicked()
         return;
     }
 
-    if (nationalCode.length() > 10 || !nationalCode.contains(QRegularExpression("^[0-9]+$"))) {
+    if (nationalCode.length() > 10 || nationalCode.contains(onlyDigits)) {
         QMessageBox::warning(this, "Error", "National Code must be numeric and at most 10 digits.");
         return;
     }
@@ -381,6 +389,102 @@ void AdminPanel::on_removeButton_clicked()
     }
 
     QMessageBox::warning(this, "Error", "Costumer not found.");
+}
+
+void AdminPanel::loadAdminInfo()
+{
+    ui->fNameEdit2->setText(QString::fromStdString(admin->getFirstName()));
+    ui->lNameEdit2->setText(QString::fromStdString(admin->getLastName()));
+    ui->nationalCodeEdit_2->setText(QString::fromStdString(admin->getNationalCode()));
+    ui->ageEdit2->setText(QString::number(admin->getAge()));
+    ui->userEdit2->setText(QString::fromStdString(admin->getUsername()));
+    ui->passEdit2->setText(QString::fromStdString(admin->getPassword()));
+}
+
+void AdminPanel::on_saveChanges_clicked()
+{
+    bool changed = false;
+
+    QString fName = ui->fNameEdit2->text().trimmed();
+    QString lName = ui->lNameEdit2->text().trimmed();
+    QString nationalCode = ui->nationalCodeEdit_2->text().trimmed();
+    QString ageStr = ui->ageEdit2->text().trimmed();
+    QString username = ui->userEdit2->text().trimmed();
+    QString password = ui->passEdit2->text().trimmed();
+
+    if (fName != QString::fromStdString(admin->getFirstName())) {
+        if (fName.isEmpty()) {
+            QMessageBox::warning(this, "Error", "First name cannot be empty.");
+            return;
+        }
+        admin->setFirstName(fName.toStdString());
+        changed = true;
+    }
+
+    if (lName != QString::fromStdString(admin->getLastName())) {
+        if (lName.isEmpty()) {
+            QMessageBox::warning(this, "Error", "Last name cannot be empty.");
+            return;
+        }
+        admin->setLastName(lName.toStdString());
+        changed = true;
+    }
+
+    if (nationalCode != QString::fromStdString(admin->getNationalCode()))
+    {
+        if (nationalCode.contains(onlyDigits)) {
+            QMessageBox::warning(this, "Error", "Invalid national code.");
+            return;
+        }
+
+        if (nationalCode.isEmpty() || nationalCode.length() > 10 || nationalCode.length() < 10 ) {
+            QMessageBox::warning(this, "Error", "Invalid national code.");
+            return;
+        }
+        admin->setNationalCode(nationalCode.toStdString());
+        changed = true;
+    }
+
+    if (ageStr != QString::number(admin->getAge())) {
+        if (ageStr.isEmpty()) {
+            QMessageBox::warning(this, "Error", "Age cannot be empty.");
+            return;
+        }
+
+        bool ok;
+        int age = ageStr.toInt(&ok);
+        if (!ok || age <= 0) {
+            QMessageBox::warning(this, "Error", "Invalid age.");
+            return;
+        }
+
+        admin->setAge(age);
+        changed = true;
+    }
+
+    if (username != QString::fromStdString(admin->getUsername())) {
+        if (username.isEmpty()) {
+            QMessageBox::warning(this, "Error", "Username cannot be empty.");
+            return;
+        }
+        admin->setUsername(username.toStdString());
+        changed = true;
+    }
+
+    if (password != QString::fromStdString(admin->getPassword())) {
+        if (password.isEmpty()) {
+            QMessageBox::warning(this, "Error", "Password cannot be empty.");
+            return;
+        }
+        admin->setPassword(password.toStdString());
+        changed = true;
+    }
+
+    if (changed) {
+        QMessageBox::information(this, "Success", "Admin information updated successfully.");
+    } else {
+        QMessageBox::information(this, "No Changes", "No changes were made.");
+    }
 }
 
 
