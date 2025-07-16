@@ -259,7 +259,7 @@ void CostumerPanel::on_checkCardNumber_clicked()
                                 "\nCurrent FIRST password: " + targetAccount->getPIN());
 
     ui->cardInfoLabel->setText(info);
-
+    ui->cardInfoLabel->show();
     ui->label_9->show();
     ui->PinLineEdit->show();
     ui->savePinButton->show();
@@ -273,6 +273,11 @@ void CostumerPanel::on_savePinButton_clicked()
 
     if (cardNumber.isEmpty() || newPin.isEmpty()) {
         QMessageBox::warning(this, "Error", "Card number and new PIN must not be empty.");
+        return;
+    }
+
+    if (newPin.length() != 4 || newPin.contains(QRegularExpression("[^0-9]"))) {
+        QMessageBox::warning(this, "Error", "PIN must be exactly 4 digits.");
         return;
     }
 
@@ -307,7 +312,8 @@ void CostumerPanel::on_savePinButton_clicked()
 
     ui->PinLineEdit->clear();
     ui->cardNumberLineEdit->clear();
-    ui->label_9->clear();
+    ui->cardInfoLabel->clear();
+    ui->cardInfoLabel->hide();
     ui->label_9->hide();
     ui->PinLineEdit->hide();
     ui->savePinButton->hide();
