@@ -1,12 +1,55 @@
+#include <QMenu>
+#include <QMenuBar>
+#include <QAction>
+#include <QVBoxLayout>
+#include <QMessageBox>
 #include "costumerpanel.h"
 #include "ui_costumerpanel.h"
 #include "projectdata.h"
+#include "firstpage.h"
+#include "costumerloginpage.h"
 
 CostumerPanel::CostumerPanel(Costumer* currentCostumer,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::CostumerPanel) , costumer(currentCostumer)
 {
     ui->setupUi(this);
+
+    QMenuBar* menuBar = new QMenuBar(this);
+
+
+    QMenu* systemMenu = new QMenu("System", this);
+
+
+    QAction* logoutAction = new QAction("Logout", this);
+    connect(logoutAction, &QAction::triggered, this, [=]() {
+        CostumerLoginPage* login = new CostumerLoginPage();
+        login->show();
+        this->close();
+    });
+
+    QAction* changeRoleAction = new QAction("ChangeRole", this);
+    connect(changeRoleAction, &QAction::triggered, this, [=]() {
+        FirstPage* selectRole = new FirstPage();
+        selectRole->show();
+        this->close();
+    });
+
+    QAction* exitAction = new QAction("Exit", this);
+    connect(exitAction, &QAction::triggered, this, &QWidget::close);
+
+
+    systemMenu->addAction(logoutAction);
+    systemMenu->addAction(changeRoleAction);
+    systemMenu->addAction(exitAction);
+
+
+    menuBar->addMenu(systemMenu);
+
+
+    QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->setMenuBar(menuBar);
+    this->setLayout(layout);
 
     connect(ui->CostumerOptions, &QListWidget::currentRowChanged,ui->stackedWidget, &QStackedWidget::setCurrentIndex);
 
