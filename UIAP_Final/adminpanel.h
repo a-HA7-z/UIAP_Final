@@ -28,6 +28,7 @@ private slots:
     void on_AdminOptions_itemClicked(QListWidgetItem* item);
     void openCostumerDetailsPage(QListWidgetItem* item);
     void on_AdminOptions_rowChanged(int index);
+    void on_showInfoButton_clicked();
 };
 
 #endif // ADMINPANEL_H

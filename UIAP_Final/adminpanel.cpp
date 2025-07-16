@@ -2,6 +2,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QVBoxLayout>
+#include <QMessageBox>
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
 #include "firstpage.h"
@@ -101,6 +102,10 @@ void AdminPanel::on_AdminOptions_itemClicked(QListWidgetItem* item)
         ui->stackedWidget->setCurrentWidget(ui->otherAdminsPage);
         loadAdmins();
     }
+
+    if(text == "Search Bank Account"){
+        ui->stackedWidget->setCurrentWidget(ui->SearchBankAccount);
+    }
 }
 
 void AdminPanel::openCostumerDetailsPage(QListWidgetItem* item)
@@ -173,3 +178,61 @@ AdminPanel::~AdminPanel()
 {
     delete ui;
 }
+
+void AdminPanel::on_showInfoButton_clicked()
+{
+    QString cardNumber = ui->cardNumberEdit->text().trimmed();
+
+    if (cardNumber.isEmpty()) {
+        QMessageBox::warning(this, "Warning", "Please enter a card number.");
+        return;
+    }
+
+    CNode<Costumer>* current = ProjectData::data().getCostumers().getHead();
+    bool found = false;
+
+    while (current != nullptr) {
+        Costumer& customer = current->getData();
+        CNode<std::shared_ptr<BankAccount>>* accNode = customer.getBankAccounts().getHead();
+
+        while (accNode != nullptr) {
+            std::shared_ptr<BankAccount> account = accNode->getData();
+
+            if (account->getCardNumber() == cardNumber.toStdString())
+            {
+                QString ownerText = QString::fromStdString(
+                    "Owner: " + customer.getFirstName() + " " +
+                    customer.getLastName() + " | Username: " + customer.getUsername()
+                    );
+                ui->ownerLabel->setText(ownerText);
+
+                QString accInfo = QString::fromStdString(
+                    "Type: " + account->showType() +
+                    "\nAccount Number: " + account->getAccountNumber() +
+                    "\nIBAN: " + account->getIBANNumber() +
+                    "\nCVV2: " + account->getCVV2() +
+                    "\nExp Date: " + account->getExpDate() +
+                    "\nPIN: " + account->getPIN() +
+                    "\nStatic Password: " + account->getStaticPassword() +
+                    "\nBalance: ");
+                accInfo += QString::fromStdString(std::to_string(account->getBalance()));
+                ui->accountInfoLabel->setText(accInfo);
+
+                found = true;
+                break;
+            }
+
+            accNode = accNode->getNext();
+        }
+
+        if (found) break;
+        current = current->getNext();
+    }
+
+    if (!found) {
+        QMessageBox::information(this, "Not Found", "No bank account found with this card number.");
+        ui->ownerLabel->clear();
+        ui->accountInfoLabel->clear();
+    }
+}
+
