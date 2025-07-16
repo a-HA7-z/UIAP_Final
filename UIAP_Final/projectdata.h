@@ -15,9 +15,9 @@ private:
     CLinkedList<Costumer> costumers;
     CLinkedList<std::shared_ptr<BankAccount>> bankAccounts;
 
-    ProjectData() = default;
+    ProjectData();
 
-public:
+public:   
     static ProjectData& data();
 
     void addAdmin(const Admin& admin);

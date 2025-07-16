@@ -13,6 +13,7 @@ private:
     string password;
 public:
     User(string fName,string lName,string IDNumber,int age);
+    User(const User& other);
 
     void setUsername(string);
     void setPassword(string);

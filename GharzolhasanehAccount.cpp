@@ -10,6 +10,6 @@ void GharzolhasanehAccount::applyForLoan() {
     cout << "Applying for Gharzolhasaneh loan..." << endl;
 }
 
-void GharzolhasanehAccount::showType() {
-    cout << "Gharzolhasaneh Bank Account" << endl;
+string GharzolhasanehAccount::showType() {
+    return "Gharzolhasaneh Bank Account";
 }

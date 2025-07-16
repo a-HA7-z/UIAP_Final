@@ -36,6 +36,10 @@ public:
         return head;
     }
 
+    CNode<T>* getTail() const{
+        return tail;
+    }
+
     void listPushBack(T data)
     {
         CNode<T>* tmp = new CNode<T>(data, nullptr);

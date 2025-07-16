@@ -1,3 +1,4 @@
+#pragma once
 #include "BankAccount.h"
 using namespace std;
 
@@ -10,5 +11,5 @@ public:
 
     void issueCheque();
 
-    void showType();
+    string showType();
 };

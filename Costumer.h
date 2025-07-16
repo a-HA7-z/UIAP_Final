@@ -17,6 +17,8 @@ public:
 
     Costumer(const Costumer& other);
 
+    CLinkedList<std::shared_ptr<BankAccount>>& getBankAccounts();
+
     void changeCardPin(int ,string );
 
     void changeCardStaticPass(int , string);
