@@ -110,6 +110,10 @@ void AdminPanel::on_AdminOptions_itemClicked(QListWidgetItem* item)
     if(text == "Add Costumer"){
         ui->stackedWidget->setCurrentWidget(ui->addCostumerPage);
     }
+
+    if(text == "Remove Costumer"){
+        ui->stackedWidget->setCurrentWidget(ui->RemoveCostumerPage);
+    }
 }
 
 void AdminPanel::openCostumerDetailsPage(QListWidgetItem* item)
@@ -291,4 +295,92 @@ void AdminPanel::on_pushButton_clicked()
     ui->userEdit->clear();
     ui->passEdit->clear();
 }
+
+
+void AdminPanel::on_checkCostumer_clicked()
+{
+    QString username = ui->costumerUsername->text().trimmed();
+    if (username.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please enter the username.");
+        return;
+    }
+
+    Costumer* selectedCostumer = ProjectData::data().findCostumer(username.toStdString());
+
+    if (!selectedCostumer) {
+        ui->CostumerInfoLabel->setText("Costumer not found!");
+        return;
+    }
+
+    QString info = QString::fromStdString( "Costumer INFO | Name: " + selectedCostumer->getFirstName() + " " + selectedCostumer->getLastName()
+                       + " / National Code: " + selectedCostumer->getNationalCode() + " / Age: ");
+    info += QString::number(selectedCostumer->getAge());
+    ui->CostumerInfoLabel->setText(info);
+}
+
+
+void AdminPanel::on_removeButton_clicked()
+{
+    QString username = ui->costumerUsername->text().trimmed();
+    if (username.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please enter a username.");
+        return;
+    }
+
+    CLinkedList<Costumer>& costumerList = ProjectData::data().getCostumers();
+    CNode<Costumer>* current = costumerList.getHead();
+    int index = 0;
+
+    while (current != nullptr) {
+        if (current->getData().getUsername() == username.toStdString()) {
+
+            std::vector<std::string> cardNumbers;
+            CLinkedList<std::shared_ptr<BankAccount>>& CBankAccounts = current->getData().getBankAccounts();
+            CNode<std::shared_ptr<BankAccount>>* currentBAccount = CBankAccounts.getHead();
+            while(currentBAccount != nullptr){
+                cardNumbers.push_back(currentBAccount->getData()->getCardNumber());
+                currentBAccount = currentBAccount->getNext();
+            }
+
+            CLinkedList<std::shared_ptr<BankAccount>>& allAccounts = ProjectData::data().getBankAccounts();
+            CNode<std::shared_ptr<BankAccount>>* accountNode = allAccounts.getHead();
+            int accIndex = 0;
+
+            int size = cardNumbers.size();
+            while (accountNode != nullptr)
+            {
+                bool shouldDelete = false;
+                for (int i = 0;i < size;i++) {
+                    if (accountNode->getData()->getCardNumber() == cardNumbers[i]) {
+                        shouldDelete = true;
+                        break;
+                    }
+                }
+
+                if (shouldDelete) {
+                    allAccounts.deleteNodeAt(accIndex);
+                    accountNode = allAccounts.getHead();
+                    accIndex = 0;
+                    continue;
+                }
+
+                accountNode = accountNode->getNext();
+                accIndex++;
+            }
+
+            admin->deleteCostumer(costumerList, index);
+
+            QMessageBox::information(this, "Success", "Costumer and their bank accounts removed.");
+            ui->CostumerInfoLabel->clear();
+            ui->costumerUsername->clear();
+            return;
+        }
+
+        current = current->getNext();
+        index++;
+    }
+
+    QMessageBox::warning(this, "Error", "Costumer not found.");
+}
+
 

@@ -30,6 +30,8 @@ private slots:
     void on_AdminOptions_rowChanged(int index);
     void on_showInfoButton_clicked();
     void on_pushButton_clicked();
+    void on_checkCostumer_clicked();
+    void on_removeButton_clicked();
 };
 
 #endif // ADMINPANEL_H
