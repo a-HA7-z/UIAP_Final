@@ -3,6 +3,7 @@
 #include <QAction>
 #include <QVBoxLayout>
 #include <QMessageBox>
+#include <QDate>
 #include "costumerpanel.h"
 #include "ui_costumerpanel.h"
 #include "projectdata.h"
@@ -445,6 +446,31 @@ void CostumerPanel::on_originCardEdit_editingFinished()
         destAccountForTransfer = nullptr;
         return;
     }
+
+    // Check card expiration
+    QString expDateStr = QString::fromStdString(originAccount->getExpDate());
+    QDate currentDate = QDate::currentDate();
+
+    QDate cardExpDate;
+    bool parseOK = false;
+
+    if (expDateStr.contains('/')) {
+        QStringList parts = expDateStr.split('/');
+        if (parts.size() == 2) {
+            int month = parts[0].toInt(&parseOK);
+            int year = 2000 + parts[1].toInt(&parseOK); // Assuming "25" => 2025
+            cardExpDate = QDate(year, month, 1).addMonths(1).addDays(-1); // Last day of exp month
+        }
+    }
+
+    if (!parseOK || cardExpDate < currentDate) {
+        QMessageBox::warning(this, "Error", "This card is expired.");
+        ui->destCardInfoLabel->clear();
+        originAccountForTransfer = nullptr;
+        ui->originCardEdit->clear();
+        return;
+    }
+
 
     originAccountForTransfer = originAccount;
 }
