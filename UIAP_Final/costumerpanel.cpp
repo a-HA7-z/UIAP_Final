@@ -579,3 +579,97 @@ void CostumerPanel::on_dynamicPassButton_clicked()
 }
 
 
+
+void CostumerPanel::on_transferButton_clicked()
+{
+    if (!originAccountForTransfer || !destAccountForTransfer) {
+        QMessageBox::warning(this, "Error", "Please make sure both origin and destination cards are set.");
+        return;
+    }
+
+    QString moneyStr = ui->amountEdit->text();
+    QString enteredPassword = ui->secondPassEdit->text();
+
+    if (moneyStr.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Amount must not be empty.");
+        return;
+    }
+    if (enteredPassword.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Second password must not be empty.");
+        return;
+    }
+
+    bool ok;
+    long long money = moneyStr.toLongLong(&ok);
+
+    if (!ok || money <= 0) {
+        QMessageBox::warning(this, "Error", "Please enter a valid amount.");
+        return;
+    }
+
+    if (money > 3000000) {
+        QMessageBox::warning(this, "Error", "You cannot transfer more than 3,000,000.");
+        return;
+    }
+
+    if (originAccountForTransfer->getTodayTransferAmount() + money > 6000000) {
+        QMessageBox::warning(this, "Error", "You have exceeded the daily transfer limit (6 million).");
+        return;
+    }
+
+    if (money < 100000) {
+        if (!originAccountForTransfer->getDynamicPassword().empty())
+        {
+            if (enteredPassword.toStdString() != originAccountForTransfer->getDynamicPassword()) {
+                QMessageBox::warning(this, "Error", "Incorrect dynamic password.");
+                return;
+            }
+        }
+        else
+        {
+            if (enteredPassword.toStdString() != originAccountForTransfer->getStaticPassword()) {
+                QMessageBox::warning(this, "Error", "Incorrect static second password.");
+                return;
+            }
+        }
+    }
+    else {
+        if (enteredPassword.toStdString() != originAccountForTransfer->getDynamicPassword()) {
+            QMessageBox::warning(this, "Error", "Incorrect dynamic password.");
+            return;
+        }
+    }
+
+
+    costumer->cardToCard(originAccountForTransfer->getCardNumber(), destAccountForTransfer.get(), money);
+
+    std::shared_ptr<BankAccount> systemOriginAccount =
+        ProjectData::data().findBankAccount(originAccountForTransfer->getCardNumber());
+
+    std::shared_ptr<BankAccount> systemDestAccount =
+        ProjectData::data().findBankAccount(destAccountForTransfer->getCardNumber());
+
+    if (!systemOriginAccount || !systemDestAccount) {
+        QMessageBox::critical(this, "Error", "System account references not found.");
+        return;
+    }
+
+    systemOriginAccount->addMoney(-1*money);
+    long long int fee = money / 10000;
+    long long int transferedMoney = money - fee;
+    systemDestAccount->addMoney(transferedMoney);
+
+    QMessageBox::information(this, "Success", "Transfer completed successfully.");
+    originAccountForTransfer->addToTodayTransfer(money);
+
+    originAccountForTransfer->setDynamicPassword("");
+    ui->originCardEdit->clear();
+    ui->destinationCardEdit->clear();
+    ui->amountEdit->clear();
+    ui->secondPassEdit->clear();
+    ui->destCardInfoLabel->clear();
+
+    originAccountForTransfer = nullptr;
+    destAccountForTransfer = nullptr;
+}
+

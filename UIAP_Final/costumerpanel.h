@@ -33,6 +33,10 @@ private slots:
     void on_checkCardNumber_2_clicked();
     void on_saveStaticPass_clicked();
     void on_destinationCardEdit_editingFinished();
+    void on_originCardEdit_editingFinished();
+    void on_amountEdit_editingFinished();
+    void on_dynamicPassButton_clicked();
+    void on_transferButton_clicked();
 };
 
 #endif // COSTUMERPANEL_H

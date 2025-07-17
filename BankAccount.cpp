@@ -50,3 +50,19 @@ string BankAccount::getDynamicPassword() const {
 void BankAccount::addMoney(long long int money) {
     balance = balance + money;
 }
+
+long long int BankAccount::getTodayTransferAmount() {
+    if (lastTransferDate != QDate::currentDate()) {
+        todayTransferSum = 0;
+        lastTransferDate = QDate::currentDate();
+    }
+    return todayTransferSum;
+}
+
+void BankAccount::addToTodayTransfer(long long int amount) {
+    if (lastTransferDate != QDate::currentDate()) {
+        todayTransferSum = 0;
+        lastTransferDate = QDate::currentDate();
+    }
+    todayTransferSum += amount;
+}

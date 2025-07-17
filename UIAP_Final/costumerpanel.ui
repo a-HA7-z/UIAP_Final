@@ -285,11 +285,14 @@
        <x>170</x>
        <y>370</y>
        <width>191</width>
-       <height>41</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
       <string>Enter the Second Password</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
     </widget>
     <widget class="QLabel" name="destCardInfoLabel">
@@ -302,7 +305,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>d</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="label_16">
@@ -321,7 +324,7 @@
       <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="transferButton">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -342,6 +345,23 @@
        <width>200</width>
        <height>30</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="dynamicPassButton">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>405</y>
+       <width>81</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 7pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Send dynamic
+password</string>
      </property>
     </widget>
    </widget>
