@@ -4,6 +4,7 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <QDate>
+#include <QRandomGenerator>
 #include "costumerpanel.h"
 #include "ui_costumerpanel.h"
 #include "projectdata.h"
@@ -559,3 +560,22 @@ void CostumerPanel::on_destinationCardEdit_editingFinished()
     QMessageBox::warning(this, "Error", "Destination card found but owner could not be determined.");
     destAccountForTransfer = nullptr;
 }
+
+void CostumerPanel::on_dynamicPassButton_clicked()
+{
+    if (!originAccountForTransfer) {
+        QMessageBox::warning(this, "Error", "Please select a valid origin card first.");
+        return;
+    }
+
+    int randomPin = QRandomGenerator::global()->bounded(100000, 1000000);
+    QString dynamicPin = QString::number(randomPin);
+
+    originAccountForTransfer->setDynamicPassword(dynamicPin.toStdString());
+
+    ui->secondPassEdit->setText(dynamicPin);
+
+    QMessageBox::information(this, "Dynamic PIN", "Your dynamic PIN has been generated.");
+}
+
+
