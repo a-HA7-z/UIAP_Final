@@ -416,6 +416,34 @@ void CostumerPanel::on_saveStaticPass_clicked()
     ui->saveStaticPass->hide();
 }
 
+void CostumerPanel::on_amountEdit_editingFinished()
+{
+    QString moneyStr = ui->amountEdit->text();
+
+    if (moneyStr.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please enter the amount first.");
+        return;
+    }
+
+    bool ok = false;
+    int money = moneyStr.toInt(&ok);
+
+    if (!ok || money <= 0) {
+        QMessageBox::warning(this, "Error", "Please enter a valid amount.");
+        ui->amountEdit->clear();
+        return;
+    }
+
+    const int maxSingleTransfer = 3000000;
+
+    if (money > maxSingleTransfer) {
+        QMessageBox::warning(this, "Error", "The transfer amount exceeds the single transaction limit of 3,000,000 Toman.");
+        ui->amountEdit->clear();
+        return;
+    }
+
+}
+
 void CostumerPanel::on_originCardEdit_editingFinished()
 {
     QString originCard = ui->originCardEdit->text();

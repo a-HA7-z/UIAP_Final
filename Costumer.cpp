@@ -41,5 +41,7 @@ void Costumer::cardToCard(string originCard, BankAccount *destinationCard, long 
     }
     targetOriginCard->getData()->addMoney(-1*money);
 
+    money = money - money*0.01;
+
     destinationCard->addMoney(money);
 }
