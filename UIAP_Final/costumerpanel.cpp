@@ -415,3 +415,93 @@ void CostumerPanel::on_saveStaticPass_clicked()
     ui->saveStaticPass->hide();
 }
 
+void CostumerPanel::on_originCardEdit_editingFinished()
+{
+    QString originCard = ui->originCardEdit->text();
+
+    if (originCard.isEmpty()) {
+        ui->destCardInfoLabel->clear();
+        originAccountForTransfer = nullptr;
+        destAccountForTransfer = nullptr;
+        return;
+    }
+
+    std::shared_ptr<BankAccount> originAccount = nullptr;
+    const CLinkedList<std::shared_ptr<BankAccount>>& accounts = costumer->getBankAccounts();
+    CNode<std::shared_ptr<BankAccount>>* current = accounts.getHead();
+
+    while (current != nullptr) {
+        if (current->getData()->getCardNumber() == originCard.toStdString()) {
+            originAccount = current->getData();
+            break;
+        }
+        current = current->getNext();
+    }
+
+    if (!originAccount) {
+        QMessageBox::warning(this, "Error", "The origin card not found.");
+        ui->destCardInfoLabel->clear();
+        originAccountForTransfer = nullptr;
+        destAccountForTransfer = nullptr;
+        return;
+    }
+
+    originAccountForTransfer = originAccount;
+}
+
+void CostumerPanel::on_destinationCardEdit_editingFinished()
+{
+    ui->destCardInfoLabel->clear();
+
+    if (!originAccountForTransfer) {
+        QMessageBox::warning(this, "Error", "Please enter the origin card first.");
+        destAccountForTransfer = nullptr;
+        return;
+    }
+
+    QString destCardNumber = ui->destinationCardEdit->text();
+
+    if (destCardNumber.isEmpty()) {
+        return;
+    }
+
+    std::shared_ptr<BankAccount> destAccount = ProjectData::data().findBankAccount(destCardNumber.toStdString());
+
+    if (!destAccount) {
+        QMessageBox::warning(this, "Error", "Destination card not found!");
+        destAccountForTransfer = nullptr;
+        return;
+    }
+
+    if (destAccount == originAccountForTransfer) {
+        QMessageBox::warning(this, "Error", "You cannot transfer to your own card.");
+        ui->destinationCardEdit->clear();
+        destAccountForTransfer = nullptr;
+        return;
+    }
+
+    CNode<Costumer>* costumerNode = ProjectData::data().getCostumers().getHead();
+    while (costumerNode != nullptr) {
+        const CLinkedList<std::shared_ptr<BankAccount>>& accounts = costumerNode->getData().getBankAccounts();
+        CNode<std::shared_ptr<BankAccount>>* accountNode = accounts.getHead();
+        while (accountNode != nullptr) {
+            if (accountNode->getData()->getCardNumber() == destCardNumber.toStdString())
+            {
+                destAccountForTransfer = accountNode->getData();
+
+                QString fullName = QString::fromStdString(
+                    costumerNode->getData().getFirstName() + " " +
+                    costumerNode->getData().getLastName()
+                    );
+                ui->destCardInfoLabel->setText("Receiver: " + fullName);
+                return;
+            }
+            accountNode = accountNode->getNext();
+        }
+        costumerNode = costumerNode->getNext();
+    }
+
+    ui->destCardInfoLabel->clear();
+    QMessageBox::warning(this, "Error", "Destination card found but owner could not be determined.");
+    destAccountForTransfer = nullptr;
+}

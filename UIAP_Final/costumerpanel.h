@@ -21,6 +21,8 @@ public:
 private:
     Ui::CostumerPanel *ui;
     Costumer* costumer;
+    std::shared_ptr<BankAccount> originAccountForTransfer = nullptr;
+    std::shared_ptr<BankAccount> destAccountForTransfer = nullptr;
 
 private slots:
     void on_CostumerOptions_currentRowChanged(int index);
@@ -30,6 +32,7 @@ private slots:
     void on_savePinButton_clicked();
     void on_checkCardNumber_2_clicked();
     void on_saveStaticPass_clicked();
+    void on_destinationCardEdit_editingFinished();
 };
 
 #endif // COSTUMERPANEL_H
