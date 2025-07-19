@@ -640,6 +640,10 @@ void CostumerPanel::on_transferButton_clicked()
         }
     }
 
+    if(money > originAccountForTransfer->getBalance()){
+        QMessageBox::warning(this, "Error", "Insufficient card balance!");
+        return;
+    }
 
     costumer->cardToCard(originAccountForTransfer->getCardNumber(), destAccountForTransfer.get(), money);
 
