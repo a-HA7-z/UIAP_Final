@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QDate>
 #include <QRandomGenerator>
+#include <QTimer>
 #include "costumerpanel.h"
 #include "ui_costumerpanel.h"
 #include "projectdata.h"
@@ -53,13 +54,25 @@ CostumerPanel::CostumerPanel(Costumer* currentCostumer,QWidget *parent)
     layout->setMenuBar(menuBar);
     this->setLayout(layout);
 
-    connect(ui->CostumerOptions, &QListWidget::currentRowChanged,ui->stackedWidget, &QStackedWidget::setCurrentIndex);
+    QTimer::singleShot(0, this, [this](){
+        ui->CostumerOptions->clearSelection();
+        ui->stackedWidget->setCurrentWidget(ui->blankPage);
+    });
+
+    ui->CostumerOptions->setCurrentRow(-1);
+
+    ui->stackedWidget->setCurrentWidget(ui->blankPage);
 
     connect(ui->CostumerOptions, &QListWidget::currentRowChanged, this, &CostumerPanel::on_CostumerOptions_currentRowChanged);
 }
 
 void CostumerPanel::on_CostumerOptions_currentRowChanged(int index)
 {
+    if (index < 0) {
+        ui->stackedWidget->setCurrentWidget(ui->blankPage);
+        return;
+    }
+
     QListWidgetItem* item = ui->CostumerOptions->item(index);
     if (item) {
         on_CostumerOptions_itemClicked(item);
@@ -98,7 +111,7 @@ void CostumerPanel::on_CostumerOptions_itemClicked(QListWidgetItem *item)
         ui->stackedWidget->setCurrentWidget(ui->changePinPage);
     }
 
-    if(text == "Change the Second card password"){
+    if(text == "Change the SECOND card password"){
         ui->stackedWidget->setCurrentWidget(ui->changeStaticPass);
     }
 }

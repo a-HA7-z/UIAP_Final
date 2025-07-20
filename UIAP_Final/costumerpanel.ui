@@ -65,6 +65,7 @@
      <height>551</height>
     </rect>
    </property>
+   <widget class="QWidget" name="blankPage"/>
    <widget class="QWidget" name="MyBankAccounts">
     <widget class="QLabel" name="label">
      <property name="geometry">
