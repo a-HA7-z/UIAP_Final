@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(243, 246, 249);</string>
+  </property>
   <widget class="QStackedWidget" name="DetailsStack">
    <property name="geometry">
     <rect>

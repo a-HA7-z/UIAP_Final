@@ -13,24 +13,37 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(243, 246, 249);</string>
+  </property>
   <widget class="QLineEdit" name="FName">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>220</x>
      <y>390</y>
      <width>231</width>
      <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 7px;
+border: 2px solid  rgb(108, 117, 125);
+color: rgb(0, 0, 0);</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="LName">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>390</y>
+     <x>700</x>
+     <y>389</y>
      <width>231</width>
      <height>61</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 7px;
+border: 2px solid  rgb(108, 117, 125);
+color: rgb(0, 0, 0);</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="NationalCode">
@@ -42,6 +55,11 @@
      <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 7px;
+border: 2px solid  rgb(108, 117, 125);
+color: rgb(0, 0, 0);</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="Age">
    <property name="geometry">
@@ -52,19 +70,25 @@
      <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 7px;
+border: 2px solid  rgb(108, 117, 125);
+color: rgb(0, 0, 0);</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>390</y>
+     <y>391</y>
      <width>161</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(214, 214, 214);
-color: rgb(0, 0, 0);</string>
+    <string notr="true">background-color: rgb(0, 86, 179); 
+color: rgb(255, 255, 255);
+border-radius: 8px;</string>
    </property>
    <property name="text">
     <string> First name</string>
@@ -73,15 +97,16 @@ color: rgb(0, 0, 0);</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>400</y>
+     <x>520</x>
+     <y>390</y>
      <width>161</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(214, 214, 214);
-color: rgb(0, 0, 0);</string>
+    <string notr="true">background-color: rgb(74, 144, 226);
+color: rgb(255, 255, 255);
+border-radius: 8px;</string>
    </property>
    <property name="text">
     <string> Last name</string>
@@ -91,48 +116,51 @@ color: rgb(0, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>500</y>
+     <y>491</y>
      <width>161</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(214, 214, 214);
-color: rgb(0, 0, 0);</string>
+    <string notr="true">background-color: rgb(0, 86, 179); 
+color: rgb(255, 255, 255);
+border-radius: 8px;</string>
    </property>
    <property name="text">
-    <string>Age</string>
+    <string> Age</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>500</y>
+     <y>491</y>
      <width>161</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(214, 214, 214);
-color: rgb(0, 0, 0);</string>
+    <string notr="true">background-color: rgb(74, 144, 226);
+color: rgb(255, 255, 255);
+border-radius: 8px;</string>
    </property>
    <property name="text">
-    <string>National Code</string>
+    <string> National Code</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>270</x>
      <y>80</y>
      <width>121</width>
-     <height>71</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(214, 214, 214);
-color: rgb(0, 0, 0);</string>
+    <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 8px;</string>
    </property>
    <property name="text">
     <string> Username</string>
@@ -141,15 +169,16 @@ color: rgb(0, 0, 0);</string>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>230</y>
+     <x>270</x>
+     <y>220</y>
      <width>121</width>
      <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(214, 214, 214);
-color: rgb(0, 0, 0);</string>
+    <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 8px;</string>
    </property>
    <property name="text">
     <string> Password</string>
@@ -158,29 +187,39 @@ color: rgb(0, 0, 0);</string>
   <widget class="QLineEdit" name="Username">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>90</y>
+     <x>420</x>
+     <y>80</y>
      <width>251</width>
      <height>61</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 7px;
+color: rgb(0, 0, 0);
+border: 2px solid  rgb(108, 117, 125);</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="Password">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>230</y>
+     <x>420</x>
+     <y>220</y>
      <width>251</width>
      <height>61</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 7px;
+border: 2px solid  rgb(108, 117, 125);
+color: rgb(0, 0, 0);</string>
    </property>
   </widget>
   <widget class="QLabel" name="ErrorUsername">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>160</y>
-     <width>251</width>
+     <x>420</x>
+     <y>150</y>
+     <width>261</width>
      <height>20</height>
     </rect>
    </property>
@@ -188,17 +227,23 @@ color: rgb(0, 0, 0);</string>
     <string notr="true">color: rgb(170, 0, 0);</string>
    </property>
    <property name="text">
-    <string> This username is already used</string>
+    <string> This username has already been used</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>780</x>
-     <y>600</y>
+     <x>420</x>
+     <y>610</y>
      <width>161</width>
      <height>61</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;Calibri&quot;;
+border-radius: 10px;
+background-color: rgb(30, 136, 229);</string>
    </property>
    <property name="text">
     <string>OK</string>
@@ -208,7 +253,7 @@ color: rgb(0, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>700</x>
-     <y>560</y>
+     <y>555</y>
      <width>231</width>
      <height>20</height>
     </rect>
@@ -224,7 +269,7 @@ color: rgb(0, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>560</y>
+     <y>555</y>
      <width>271</width>
      <height>20</height>
     </rect>
@@ -239,8 +284,8 @@ color: rgb(0, 0, 0);</string>
   <widget class="QLabel" name="FNameErrorLabel">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>450</y>
+     <x>220</x>
+     <y>451</y>
      <width>231</width>
      <height>20</height>
     </rect>
@@ -255,7 +300,7 @@ color: rgb(0, 0, 0);</string>
   <widget class="QLabel" name="LNameErrorLabel">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>710</x>
      <y>450</y>
      <width>231</width>
      <height>20</height>
@@ -271,8 +316,8 @@ color: rgb(0, 0, 0);</string>
   <widget class="QLabel" name="PasswordErrorLabel">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>300</y>
+     <x>420</x>
+     <y>290</y>
      <width>311</width>
      <height>20</height>
     </rect>

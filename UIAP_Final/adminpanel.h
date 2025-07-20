@@ -19,6 +19,8 @@ public:
     void loadBankAccounts();
     void loadAdmins();
     void loadAdminInfo();
+    void styleListWidget(QListWidget* listWidget);
+    void adjustListHeight(QListWidget* listWidget);
     ~AdminPanel();
 
 private:

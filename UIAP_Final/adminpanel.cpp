@@ -58,6 +58,8 @@ AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->blankPage);
     });
 
+    styleListWidget(ui->AdminOptions);
+    adjustListHeight(ui->AdminOptions);
     ui->AdminOptions->setCurrentRow(-1);
 
     ui->stackedWidget->setCurrentWidget(ui->blankPage);
@@ -498,6 +500,64 @@ void AdminPanel::on_saveChanges_clicked()
     } else {
         QMessageBox::information(this, "No Changes", "No changes were made.");
     }
+}
+
+void AdminPanel::styleListWidget(QListWidget* listWidget)
+{
+    if (!listWidget) return;
+
+    listWidget->setSpacing(4);
+
+    listWidget->setStyleSheet(R"(
+        QListWidget {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            padding: 4px;
+        }
+
+        QListWidget::item {
+            padding: 10px;
+            margin: 4px 0;
+            border-radius: 6px;
+            background-color: #eaf6ff;
+            color: black;
+        }
+
+        QListWidget::item:selected {
+            background-color: #d0eaff;
+            color: #000;
+        }
+
+        QListWidget::item:hover {
+            background-color: #eaf6ff;
+        }
+    )");
+}
+
+void AdminPanel::adjustListHeight(QListWidget* listWidget)
+{
+    if (!listWidget || listWidget->count() == 0)
+        return;
+
+    int totalHeight = 0;
+    int spacing = listWidget->spacing();
+    int count = listWidget->count();
+
+    for (int i = 0; i < count; ++i) {
+        int rowHeight = listWidget->sizeHintForRow(i);
+        if (rowHeight <= 0) rowHeight = 48;
+        totalHeight += rowHeight;
+    }
+
+    totalHeight += count * spacing;
+
+    totalHeight += 2 * listWidget->frameWidth();
+
+    totalHeight += 2;
+
+    listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    listWidget->setFixedHeight(totalHeight);
 }
 
 

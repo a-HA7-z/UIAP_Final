@@ -6,22 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
-    <height>600</height>
+    <width>861</width>
+    <height>544</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>FirstPage</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(243, 246, 249);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="AdminRole">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>170</y>
+      <x>300</x>
+      <y>180</y>
       <width>261</width>
       <height>101</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 13pt &quot;Segoe UI&quot;;
+background-color: rgb(44, 123, 229);
+border-radius: 12px;
+border: 2px solid rgb(51, 156, 255);
+</string>
     </property>
     <property name="text">
      <string>Admin</string>
@@ -30,14 +41,44 @@
    <widget class="QPushButton" name="Costumerrole">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>300</x>
       <y>320</y>
       <width>261</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 13pt &quot;Segoe UI&quot;;
+background-color: rgb(51, 156, 255);
+border-radius: 12px;
+border: 1px solid rgb(0, 123, 255); </string>
+    </property>
     <property name="text">
      <string>Costumer</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>60</y>
+      <width>381</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;Segoe UI&quot;;
+background-color: rgb(108, 117, 125);
+border-radius: 8px;
+border: 2px solid rgb(173, 181, 189);</string>
+    </property>
+    <property name="text">
+     <string>Select Your Role</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -46,7 +87,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>900</width>
+     <width>861</width>
      <height>25</height>
     </rect>
    </property>
