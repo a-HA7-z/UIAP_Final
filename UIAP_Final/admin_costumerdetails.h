@@ -29,6 +29,10 @@ private slots:
 
     void on_SaveChanges_clicked();
 
+    void on_CardNumber_editingFinished();
+
+    void on_AccountNumber_editingFinished();
+
 private:
     Ui::Admin_CostumerDetails *ui;
     Costumer* currentCostumer;

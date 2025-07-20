@@ -124,6 +124,28 @@ void Admin_CostumerDetails::on_AddAccountButton_clicked()
         return;
     }
 
+    const CLinkedList<std::shared_ptr<BankAccount>>& allAccounts = ProjectData::data().getBankAccounts();
+    CNode<std::shared_ptr<BankAccount>>* node = allAccounts.getHead();
+
+    while (node != nullptr) {
+        const std::shared_ptr<BankAccount>& account = node->getData();
+
+        if (account->getCardNumber() == cardNum.toStdString()) {
+            QMessageBox::warning(this, "Error", "Card number already exists.");
+            return;
+        }
+        if (account->getAccountNumber() == accNum.toStdString()) {
+            QMessageBox::warning(this, "Error", "Account number already exists.");
+            return;
+        }
+        if (account->getIBANNumber() == iban.toStdString()) {
+            QMessageBox::warning(this, "Error", "IBAN already exists.");
+            return;
+        }
+
+        node = node->getNext();
+    }
+
     admin->createBankAccount(*currentCostumer, type,
                             cardNum.toStdString(),accNum.toStdString(),
                             iban.toStdString(),cvv2.toStdString(),
@@ -197,5 +219,45 @@ void Admin_CostumerDetails::on_SaveChanges_clicked()
 
     QMessageBox::information(this, "Saved", "Costumer information updated successfully.");
     on_BankAccounts_clicked();
+}
+
+
+void Admin_CostumerDetails::on_CardNumber_editingFinished()
+{
+    QString cardNumber = ui->CardNumber->text().trimmed();
+
+    if(cardNumber.isEmpty()){
+        QMessageBox::warning(this, "Warning", "You must enter the Card number!");
+        return;
+    }
+
+    QRegularExpression re(R"(^\d{16}$)");
+    const QRegularExpressionMatch match = re.match(cardNumber);
+
+    if (!match.hasMatch()) {
+        QMessageBox::warning(this, "Invalid Input", "Card number must be exactly 16 digits (numbers only).");
+        ui->CardNumber->setFocus();
+        return;
+    }
+}
+
+
+void Admin_CostumerDetails::on_AccountNumber_editingFinished()
+{
+    QString accountNumber = ui->AccountNumber->text().trimmed();
+
+    if(accountNumber.isEmpty()){
+        QMessageBox::warning(this, "Warning", "You must enter the Account number!");
+        return;
+    }
+
+    QRegularExpression re(R"(^\d{12,16}$)");
+    QRegularExpressionMatch match = re.match(accountNumber);
+
+    if (!match.hasMatch()) {
+        QMessageBox::warning(this, "Invalid Input", "Account number must be 12 to 16 digits (numbers only).");
+        ui->AccountNumber->setFocus();
+        return;
+    }
 }
 
