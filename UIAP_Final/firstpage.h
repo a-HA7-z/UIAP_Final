@@ -20,6 +20,8 @@ public:
 private slots:
     void on_AdminRole_clicked();
 
+    void on_Costumerrole_clicked();
+
 private:
     Ui::FirstPage *ui;
 };

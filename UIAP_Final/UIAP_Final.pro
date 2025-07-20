@@ -16,6 +16,8 @@ SOURCES += \
     adminloginpage.cpp \
     adminpanel.cpp \
     adminsignup.cpp \
+    costumerloginpage.cpp \
+    costumerpanel.cpp \
     main.cpp \
     firstpage.cpp \
     ../User.cpp \
@@ -33,6 +35,8 @@ HEADERS += \
     adminloginpage.h \
     adminpanel.h \
     adminsignup.h \
+    costumerloginpage.h \
+    costumerpanel.h \
     firstpage.h \
     ../User.h \
     ../Admin.h \
@@ -51,6 +55,8 @@ FORMS += \
     adminloginpage.ui \
     adminpanel.ui \
     adminsignup.ui \
+    costumerloginpage.ui \
+    costumerpanel.ui \
     firstpage.ui
 
 # Default rules for deployment.

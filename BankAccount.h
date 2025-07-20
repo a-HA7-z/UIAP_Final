@@ -1,4 +1,5 @@
 #pragma once
+#include <QDate>
 #include <string>
 using namespace std;
 class BankAccount
@@ -13,6 +14,8 @@ private:
     string staticPassword;
     string dynamicPassword;
     long long int balance;
+    long long int todayTransferSum = 0;
+    QDate lastTransferDate;
 public:
     BankAccount(const string& cardNumber, const string& accountNumber, const string& IBAN_number,
                 const string& CVV2, const string& Exp_Date, const string& PIN,
@@ -36,4 +39,8 @@ public:
     virtual void addMoney(long long int money);
 
     virtual string showType() = 0;
+
+    virtual long long int getTodayTransferAmount();
+
+    virtual void addToTodayTransfer(long long int amount);
 };

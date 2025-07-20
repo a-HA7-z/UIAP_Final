@@ -4,6 +4,7 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <QRegularExpression>
+#include <QTimer>
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
 #include "firstpage.h"
@@ -52,7 +53,14 @@ AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
     layout->setMenuBar(menuBar);
     this->setLayout(layout);
 
-    connect(ui->AdminOptions, &QListWidget::currentRowChanged,ui->stackedWidget, &QStackedWidget::setCurrentIndex);
+    QTimer::singleShot(0, this, [this](){
+        ui->AdminOptions->clearSelection();
+        ui->stackedWidget->setCurrentWidget(ui->blankPage);
+    });
+
+    ui->AdminOptions->setCurrentRow(-1);
+
+    ui->stackedWidget->setCurrentWidget(ui->blankPage);
 
     connect(ui->CostumersList, &QListWidget::itemClicked, this, &AdminPanel::openCostumerDetailsPage);
 
@@ -64,6 +72,11 @@ static const QRegularExpression onlyDigits("[^0-9]");
 
 void AdminPanel::on_AdminOptions_rowChanged(int index)
 {
+    if (index < 0) {
+        ui->stackedWidget->setCurrentWidget(ui->blankPage);
+        return;
+    }
+
     QListWidgetItem* item = ui->AdminOptions->item(index);
     if (item) {
         on_AdminOptions_itemClicked(item);
