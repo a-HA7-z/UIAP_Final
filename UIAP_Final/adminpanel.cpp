@@ -109,16 +109,19 @@ void AdminPanel::on_AdminOptions_itemClicked(QListWidgetItem* item)
     if (text == "All Costumers") {
         ui->stackedWidget->setCurrentWidget(ui->pageShowCostumers);
         loadCostumers();
+        adjustListHeight(ui->CostumersList);
     }
 
     if(text == "All Bank Accounts"){
         ui->stackedWidget->setCurrentWidget(ui->allBankAccounts);
         loadBankAccounts();
+        adjustListHeight(ui->AccountsList);
     }
 
     if(text == "Other Admins"){
         ui->stackedWidget->setCurrentWidget(ui->otherAdminsPage);
         loadAdmins();
+        adjustListHeight(ui->AdminsList);
     }
 
     if(text == "Search Bank Account"){

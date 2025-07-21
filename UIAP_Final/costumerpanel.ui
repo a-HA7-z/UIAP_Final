@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1102</width>
-    <height>701</height>
+    <width>1080</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QListWidget" name="CostumerOptions">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>50</x>
      <y>160</y>
-     <width>331</width>
-     <height>191</height>
+     <width>391</width>
+     <height>241</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -29,43 +29,80 @@
     <property name="text">
      <string>My Bank Accounts</string>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
    </item>
    <item>
     <property name="text">
      <string>All Bank Accounts</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
     </property>
    </item>
    <item>
     <property name="text">
      <string>Bank Account Search</string>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
    </item>
    <item>
     <property name="text">
      <string>Card to Card</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
     </property>
    </item>
    <item>
     <property name="text">
      <string>Change the FIRST card password</string>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
    </item>
    <item>
     <property name="text">
      <string>Change the SECOND card password</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
     </property>
    </item>
   </widget>
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>470</x>
+     <x>450</x>
      <y>80</y>
      <width>531</width>
      <height>551</height>
     </rect>
    </property>
-   <widget class="QWidget" name="blankPage"/>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(221, 239, 253);</string>
+   </property>
+   <widget class="QWidget" name="blankPage">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
    <widget class="QWidget" name="MyBankAccounts">
     <widget class="QLabel" name="label">
      <property name="geometry">
@@ -75,6 +112,12 @@
        <width>531</width>
        <height>51</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(30, 136, 229);
+color: rgb(225,225,225);
+font: 12pt &quot;Segoe UI&quot;;
+border-radius: 7px;</string>
      </property>
      <property name="text">
       <string>My Bank Accounts</string>
@@ -87,7 +130,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>40</y>
+       <y>50</y>
        <width>531</width>
        <height>361</height>
       </rect>
@@ -114,6 +157,12 @@
        <height>51</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(30, 136, 229);
+color: rgb(225,225,225);
+font: 12pt &quot;Segoe UI&quot;;
+border-radius: 7px;</string>
+     </property>
      <property name="text">
       <string>All Bank Accounts</string>
      </property>
@@ -132,6 +181,13 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 7px;
+font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+border: 2px solid  rgb(108, 117, 125);
+background-color: rgb(255, 255, 255);</string>
+     </property>
     </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
@@ -141,6 +197,12 @@
        <width>531</width>
        <height>51</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(30, 136, 229);
+color: rgb(225,225,225);
+font: 12pt &quot;Segoe UI&quot;;
+border-radius: 7px;</string>
      </property>
      <property name="text">
       <string>Bank Account Search</string>
@@ -152,11 +214,17 @@
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>80</x>
        <y>110</y>
-       <width>331</width>
-       <height>30</height>
+       <width>361</width>
+       <height>40</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 9px;
+font: 10pt &quot;HP Simplified Hans&quot;;</string>
      </property>
      <property name="text">
       <string>Enter the card number of desired BankAccount</string>
@@ -208,8 +276,15 @@
        <x>170</x>
        <y>180</y>
        <width>200</width>
-       <height>30</height>
+       <height>40</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 7px;
+font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+border: 2px solid  rgb(108, 117, 125);
+background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="destinationCardEdit">
@@ -218,8 +293,15 @@
        <x>160</x>
        <y>270</y>
        <width>221</width>
-       <height>30</height>
+       <height>40</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 7px;
+font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+border: 2px solid  rgb(108, 117, 125);
+background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="secondPassEdit">
@@ -228,8 +310,15 @@
        <x>210</x>
        <y>410</y>
        <width>113</width>
-       <height>30</height>
+       <height>33</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 7px;
+font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+border: 2px solid  rgb(108, 117, 125);
+background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_11">
@@ -240,6 +329,12 @@
        <width>531</width>
        <height>50</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(30, 136, 229);
+color: rgb(225,225,225);
+font: 12pt &quot;Segoe UI&quot;;
+border-radius: 7px;</string>
      </property>
      <property name="text">
       <string>Card to Card</string>
@@ -252,10 +347,16 @@
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>150</y>
+       <y>145</y>
        <width>201</width>
-       <height>21</height>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 9px;
+font: 10pt &quot;HP Simplified Hans&quot;;</string>
      </property>
      <property name="text">
       <string>Enter your Card number</string>
@@ -267,11 +368,17 @@
     <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>240</y>
-       <width>221</width>
-       <height>30</height>
+       <x>150</x>
+       <y>235</y>
+       <width>241</width>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 9px;
+font: 10pt &quot;HP Simplified Hans&quot;;</string>
      </property>
      <property name="text">
       <string>Enter destination Card number</string>
@@ -283,11 +390,17 @@
     <widget class="QLabel" name="label_14">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>160</x>
        <y>370</y>
-       <width>191</width>
-       <height>31</height>
+       <width>211</width>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 9px;
+font: 10pt &quot;HP Simplified Hans&quot;;</string>
      </property>
      <property name="text">
       <string>Enter the Second Password</string>
@@ -300,7 +413,7 @@
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>300</y>
+       <y>320</y>
        <width>221</width>
        <height>31</height>
       </rect>
@@ -313,10 +426,16 @@
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>70</y>
+       <y>65</y>
        <width>201</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 9px;
+font: 10pt &quot;HP Simplified Hans&quot;;</string>
      </property>
      <property name="text">
       <string>Enter the amount</string>
@@ -344,8 +463,15 @@
        <x>170</x>
        <y>100</y>
        <width>200</width>
-       <height>30</height>
+       <height>40</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 7px;
+font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+border: 2px solid  rgb(108, 117, 125);
+background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
     <widget class="QPushButton" name="dynamicPassButton">
@@ -371,7 +497,7 @@ password</string>
      <property name="geometry">
       <rect>
        <x>210</x>
-       <y>170</y>
+       <y>180</y>
        <width>101</width>
        <height>31</height>
       </rect>
@@ -384,10 +510,17 @@ password</string>
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>120</y>
+       <y>122</y>
        <width>200</width>
-       <height>28</height>
+       <height>40</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 7px;
+font: 9pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+border: 2px solid  rgb(108, 117, 125);
+background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="PinLineEdit">
@@ -399,6 +532,13 @@ password</string>
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 7px;
+font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+border: 2px solid  rgb(108, 117, 125);
+background-color: rgb(255, 255, 255);</string>
+     </property>
     </widget>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
@@ -408,6 +548,12 @@ password</string>
        <width>531</width>
        <height>50</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(30, 136, 229);
+color: rgb(225,225,225);
+font: 12pt &quot;Segoe UI&quot;;
+border-radius: 7px;</string>
      </property>
      <property name="text">
       <string>Change the First card password</string>
@@ -419,11 +565,17 @@ password</string>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>60</y>
-       <width>311</width>
+       <x>100</x>
+       <y>80</y>
+       <width>331</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 9px;
+font: 10pt &quot;HP Simplified Hans&quot;;</string>
      </property>
      <property name="text">
       <string>Enter the card number of your desired Card</string>
@@ -457,8 +609,14 @@ password</string>
        <x>120</x>
        <y>360</y>
        <width>281</width>
-       <height>20</height>
+       <height>38</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 9px;
+font: 10pt &quot;HP Simplified Hans&quot;;</string>
      </property>
      <property name="text">
       <string>Enter the new First Password</string>
@@ -491,6 +649,12 @@ password</string>
        <height>50</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(30, 136, 229);
+color: rgb(225,225,225);
+font: 12pt &quot;Segoe UI&quot;;
+border-radius: 7px;</string>
+     </property>
      <property name="text">
       <string>Change the Second (static) card password</string>
      </property>
@@ -507,15 +671,28 @@ password</string>
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 7px;
+font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+border: 2px solid  rgb(108, 117, 125);
+background-color: rgb(255, 255, 255);</string>
+     </property>
     </widget>
     <widget class="QLabel" name="label_10">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>120</x>
        <y>360</y>
-       <width>281</width>
+       <width>301</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 9px;
+font: 10pt &quot;HP Simplified Hans&quot;;</string>
      </property>
      <property name="text">
       <string>Enter the new Second (static) Password</string>
@@ -559,11 +736,17 @@ password</string>
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>100</x>
        <y>60</y>
-       <width>311</width>
+       <width>331</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 122, 204);
+color: rgb(255, 255, 255);
+border-radius: 9px;
+font: 10pt &quot;HP Simplified Hans&quot;;</string>
      </property>
      <property name="text">
       <string>Enter the card number of your desired Card</string>
@@ -578,8 +761,15 @@ password</string>
        <x>165</x>
        <y>120</y>
        <width>200</width>
-       <height>28</height>
+       <height>40</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 7px;
+font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+border: 2px solid  rgb(108, 117, 125);
+background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
     <widget class="QPushButton" name="checkCardNumber_2">
