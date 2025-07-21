@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>120</y>
+     <y>170</y>
      <width>261</width>
      <height>251</height>
     </rect>
@@ -107,7 +107,7 @@
     <rect>
      <x>420</x>
      <y>70</y>
-     <width>541</width>
+     <width>561</width>
      <height>551</height>
     </rect>
    </property>
@@ -115,7 +115,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>7</number>
    </property>
    <widget class="QWidget" name="blankPage">
     <property name="autoFillBackground">
@@ -131,12 +131,37 @@
       <rect>
        <x>0</x>
        <y>50</y>
-       <width>541</width>
+       <width>561</width>
        <height>311</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
+      <string notr="true">QListWidget {
+    background-color: rgb(240, 248, 255);
+    border: 1px solid rgb(180, 200, 220);
+	border-radius: 10px;
+    padding: 4px;
+    font-size: 14px;
+    color: black;
+}
+
+QListWidget::item {
+    padding: 6px;
+    border: none;
+}
+
+QListWidget::item:selected {
+    background-color: rgb(204, 228, 247);
+    color: black;
+}
+
+QListWidget::item:hover {
+    background-color: rgb(220, 235, 250);
+}
+</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_19">
@@ -144,7 +169,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>541</width>
+       <width>561</width>
        <height>50</height>
       </rect>
      </property>
@@ -171,12 +196,37 @@ border-radius: 7px;</string>
       <rect>
        <x>0</x>
        <y>50</y>
-       <width>541</width>
+       <width>561</width>
        <height>311</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
+      <string notr="true">QListWidget {
+    background-color: rgb(221, 239, 253);
+    border: 1px solid rgb(180, 200, 220);
+	border-radius: 10px;
+    padding: 4px;
+    font-size: 14px;
+    color: black;
+}
+
+QListWidget::item {
+    padding: 6px;
+    border: none;
+}
+
+QListWidget::item:selected {
+    background-color: rgb(204, 228, 247);
+    color: black;
+}
+
+QListWidget::item:hover {
+    background-color: rgb(220, 235, 250);
+}
+</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_20">
@@ -184,7 +234,7 @@ border-radius: 7px;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>541</width>
+       <width>561</width>
        <height>50</height>
       </rect>
      </property>
@@ -211,12 +261,37 @@ border-radius: 7px;</string>
       <rect>
        <x>0</x>
        <y>50</y>
-       <width>541</width>
+       <width>561</width>
        <height>341</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
+      <string notr="true">QListWidget {
+    background-color: rgb(221, 239, 253);
+    border: 1px solid rgb(180, 200, 220);
+	border-radius: 10px;
+    padding: 4px;
+    font-size: 14px;
+    color: black;
+}
+
+QListWidget::item {
+    padding: 6px;
+    border: none;
+}
+
+QListWidget::item:selected {
+    background-color: rgb(204, 228, 247);
+    color: black;
+}
+
+QListWidget::item:hover {
+    background-color: rgb(220, 235, 250);
+}
+</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_21">
@@ -224,7 +299,7 @@ border-radius: 7px;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>541</width>
+       <width>561</width>
        <height>50</height>
       </rect>
      </property>
@@ -249,8 +324,8 @@ border-radius: 7px;</string>
     <widget class="QLineEdit" name="cardNumberEdit">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>130</y>
+       <x>180</x>
+       <y>131</y>
        <width>211</width>
        <height>51</height>
       </rect>
@@ -266,8 +341,8 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>89</y>
+       <x>110</x>
+       <y>90</y>
        <width>361</width>
        <height>41</height>
       </rect>
@@ -290,7 +365,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>541</width>
+       <width>561</width>
        <height>51</height>
       </rect>
      </property>
@@ -310,8 +385,8 @@ border-radius: 7px;</string>
     <widget class="QPushButton" name="showInfoButton">
      <property name="geometry">
       <rect>
-       <x>230</x>
-       <y>190</y>
+       <x>240</x>
+       <y>191</y>
        <width>101</width>
        <height>51</height>
       </rect>
@@ -330,8 +405,8 @@ border-radius: 8px;</string>
     <widget class="QLabel" name="ownerLabel">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>278</y>
+       <x>50</x>
+       <y>279</y>
        <width>461</width>
        <height>50</height>
       </rect>
@@ -361,8 +436,8 @@ color: rgb(26, 26, 26);</string>
     <widget class="QLabel" name="accountInfoLabel">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>330</y>
+       <x>50</x>
+       <y>331</y>
        <width>461</width>
        <height>200</height>
       </rect>
@@ -397,7 +472,7 @@ color: rgb(26, 26, 26);</string>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>70</x>
        <y>90</y>
        <width>200</width>
        <height>35</height>
@@ -416,7 +491,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>300</x>
        <y>90</y>
        <width>200</width>
        <height>35</height>
@@ -435,7 +510,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QLineEdit" name="lNameEdit">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>300</x>
        <y>130</y>
        <width>200</width>
        <height>40</height>
@@ -452,7 +527,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="fNameEdit">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>70</x>
        <y>130</y>
        <width>200</width>
        <height>40</height>
@@ -469,7 +544,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="nationalCodeEdit">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>70</x>
        <y>240</y>
        <width>200</width>
        <height>40</height>
@@ -486,7 +561,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="ageEdit">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>300</x>
        <y>240</y>
        <width>200</width>
        <height>40</height>
@@ -503,7 +578,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="userEdit">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>70</x>
        <y>350</y>
        <width>200</width>
        <height>40</height>
@@ -520,7 +595,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="passEdit">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>300</x>
        <y>350</y>
        <width>200</width>
        <height>40</height>
@@ -539,7 +614,7 @@ background-color: rgb(255, 255, 255);</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>541</width>
+       <width>561</width>
        <height>51</height>
       </rect>
      </property>
@@ -559,7 +634,7 @@ border-radius: 7px;</string>
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>70</x>
        <y>200</y>
        <width>200</width>
        <height>35</height>
@@ -578,7 +653,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>300</x>
        <y>200</y>
        <width>200</width>
        <height>35</height>
@@ -597,7 +672,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QLabel" name="label_10">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>70</x>
        <y>310</y>
        <width>200</width>
        <height>35</height>
@@ -616,7 +691,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>300</x>
        <y>310</y>
        <width>200</width>
        <height>35</height>
@@ -635,7 +710,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>230</x>
        <y>440</y>
        <width>121</width>
        <height>51</height>
@@ -660,7 +735,7 @@ border-radius: 8px;</string>
     <widget class="QLineEdit" name="costumerUsername">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>190</x>
        <y>235</y>
        <width>200</width>
        <height>40</height>
@@ -677,7 +752,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>130</x>
        <y>170</y>
        <width>321</width>
        <height>51</height>
@@ -701,7 +776,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>541</width>
+       <width>561</width>
        <height>51</height>
       </rect>
      </property>
@@ -721,7 +796,7 @@ border-radius: 7px;</string>
     <widget class="QPushButton" name="removeButton">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>230</x>
        <y>470</y>
        <width>111</width>
        <height>51</height>
@@ -741,7 +816,7 @@ border-radius: 8px;</string>
     <widget class="QLabel" name="CostumerInfoLabel">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>100</x>
        <y>320</y>
        <width>371</width>
        <height>50</height>
@@ -772,7 +847,7 @@ color: rgb(26, 26, 26);</string>
     <widget class="QPushButton" name="checkCostumer">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>210</x>
        <y>395</y>
        <width>151</width>
        <height>41</height>
@@ -797,7 +872,7 @@ border-radius: 6px;</string>
     <widget class="QLineEdit" name="userEdit2">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>50</x>
        <y>110</y>
        <width>200</width>
        <height>40</height>
@@ -814,7 +889,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="passEdit2">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>310</x>
        <y>110</y>
        <width>200</width>
        <height>40</height>
@@ -831,7 +906,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="fNameEdit2">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>50</x>
        <y>230</y>
        <width>200</width>
        <height>40</height>
@@ -848,7 +923,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="lNameEdit2">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>310</x>
        <y>230</y>
        <width>200</width>
        <height>40</height>
@@ -865,7 +940,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="nationalCodeEdit_2">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>50</x>
        <y>360</y>
        <width>200</width>
        <height>40</height>
@@ -882,7 +957,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="ageEdit2">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>310</x>
        <y>360</y>
        <width>200</width>
        <height>40</height>
@@ -899,7 +974,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>50</x>
        <y>70</y>
        <width>200</width>
        <height>40</height>
@@ -918,7 +993,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>310</x>
        <y>70</y>
        <width>200</width>
        <height>40</height>
@@ -937,7 +1012,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QLabel" name="label_14">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>310</x>
        <y>190</y>
        <width>200</width>
        <height>40</height>
@@ -956,7 +1031,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QLabel" name="label_15">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>50</x>
        <y>190</y>
        <width>200</width>
        <height>40</height>
@@ -975,7 +1050,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QLabel" name="label_16">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>310</x>
        <y>320</y>
        <width>200</width>
        <height>40</height>
@@ -994,7 +1069,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
     <widget class="QLabel" name="label_17">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>50</x>
        <y>320</y>
        <width>200</width>
        <height>40</height>
@@ -1015,7 +1090,7 @@ font: 10pt &quot;HP Simplified Hans&quot;;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>541</width>
+       <width>561</width>
        <height>51</height>
       </rect>
      </property>
@@ -1035,7 +1110,7 @@ border-radius: 7px;</string>
     <widget class="QPushButton" name="saveChanges">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>220</x>
        <y>470</y>
        <width>111</width>
        <height>51</height>

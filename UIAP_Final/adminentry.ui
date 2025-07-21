@@ -27,6 +27,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(44, 123, 229);
+font: 15pt &quot;Segoe UI&quot;;
 border-radius: 10px;
 </string>
    </property>
@@ -45,6 +46,7 @@ border-radius: 10px;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(0, 86, 179); 
+font: 15pt &quot;Segoe UI&quot;;
 border-radius: 10px;
 
 </string>

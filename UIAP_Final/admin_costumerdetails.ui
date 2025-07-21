@@ -29,7 +29,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="blankPage"/>
    <widget class="QWidget" name="pageBankAccounts">
@@ -39,15 +39,39 @@
     <widget class="QListWidget" name="AccountsList">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>69</x>
        <y>80</y>
        <width>631</width>
        <height>331</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::FocusPolicy::NoFocus</enum>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;Segoe UI&quot;;
-color: rgb(255, 255, 255);</string>
+      <string notr="true">QListWidget {
+    background-color: rgb(221, 239, 253);
+    border: 1px solid rgb(180, 200, 220);
+	border-radius: 10px;
+    padding: 4px;
+    font-size: 14px;
+    color: black;
+}
+
+QListWidget::item {
+    padding: 6px;
+    border: none;
+}
+
+QListWidget::item:selected {
+    background-color: rgb(204, 228, 247);
+    color: black;
+}
+
+QListWidget::item:hover {
+    background-color: rgb(220, 235, 250);
+}
+</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_15">

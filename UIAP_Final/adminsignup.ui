@@ -93,7 +93,7 @@ color: rgb(0, 0, 0);</string>
     <string notr="true">background-color: rgb(0, 86, 179); 
 color: rgb(255, 255, 255);
 border-radius: 8px;
-font: 10pt &quot;Segoe UI&quot;;</string>
+font: 12pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
     <string> First name</string>
@@ -109,7 +109,7 @@ font: 10pt &quot;Segoe UI&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+    <string notr="true">font: 12pt &quot;Segoe UI&quot;;
 background-color: rgb(74, 144, 226);
 color: rgb(255, 255, 255);
 border-radius: 8px;</string>
@@ -128,7 +128,7 @@ border-radius: 8px;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+    <string notr="true">font: 12pt &quot;Segoe UI&quot;;
 background-color: rgb(0, 86, 179); 
 color: rgb(255, 255, 255);
 border-radius: 8px;</string>
@@ -150,7 +150,7 @@ border-radius: 8px;</string>
     <string notr="true">background-color: rgb(74, 144, 226);
 color: rgb(255, 255, 255);
 border-radius: 8px;
-font: 10pt &quot;Segoe UI&quot;;</string>
+font: 12pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
     <string> National Code</string>
@@ -166,7 +166,7 @@ font: 10pt &quot;Segoe UI&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+    <string notr="true">font: 12pt &quot;Segoe UI&quot;;
 background-color: rgb(0, 122, 204);
 color: rgb(255, 255, 255);
 border-radius: 8px;</string>
@@ -185,7 +185,7 @@ border-radius: 8px;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+    <string notr="true">font: 12pt &quot;Segoe UI&quot;;
 background-color: rgb(0, 122, 204);
 color: rgb(255, 255, 255);
 border-radius: 8px;</string>
@@ -254,7 +254,7 @@ border-radius: 7px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
-font: 12pt &quot;Calibri&quot;;
+font: 14pt &quot;Calibri&quot;;
 border-radius: 10px;
 background-color: rgb(30, 136, 229);</string>
    </property>
@@ -369,16 +369,16 @@ border-radius: 7px;</string>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>390</x>
      <y>50</y>
-     <width>191</width>
+     <width>221</width>
      <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 0, 127);
 background-color: rgb(203, 232, 255);
-font: 14pt &quot;Malgun Gothic&quot;;
+font: 16pt &quot;Malgun Gothic&quot;;
 border-radius: 10px;</string>
    </property>
    <property name="text">
