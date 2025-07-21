@@ -684,22 +684,6 @@ void CostumerPanel::on_transferButton_clicked()
 
     costumer->cardToCard(originAccountForTransfer->getCardNumber(), destAccountForTransfer.get(), money);
 
-    std::shared_ptr<BankAccount> systemOriginAccount =
-        ProjectData::data().findBankAccount(originAccountForTransfer->getCardNumber());
-
-    std::shared_ptr<BankAccount> systemDestAccount =
-        ProjectData::data().findBankAccount(destAccountForTransfer->getCardNumber());
-
-    if (!systemOriginAccount || !systemDestAccount) {
-        QMessageBox::critical(this, "Error", "System account references not found.");
-        return;
-    }
-
-    systemOriginAccount->addMoney(-1*money);
-    long long int fee = money / 10000;
-    long long int transferedMoney = money - fee;
-    systemDestAccount->addMoney(transferedMoney);
-
     QMessageBox::information(this, "Success", "Transfer completed successfully.");
     originAccountForTransfer->addToTodayTransfer(money);
 
