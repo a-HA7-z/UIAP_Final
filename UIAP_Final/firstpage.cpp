@@ -7,7 +7,7 @@ FirstPage::FirstPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::FirstPage)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);   
 }
 
 FirstPage::~FirstPage()

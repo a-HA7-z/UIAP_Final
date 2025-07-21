@@ -69,10 +69,10 @@ border: 1px solid rgb(0, 123, 255); </string>
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(255, 255, 255);
-font: 12pt &quot;Segoe UI&quot;;
+font: 14pt &quot;Segoe UI&quot;;
 background-color: rgb(108, 117, 125);
 border-radius: 8px;
-border: 2px solid rgb(173, 181, 189);</string>
+border: 2px solid rgb(108, 117, 125);</string>
     </property>
     <property name="text">
      <string>Select Your Role</string>
@@ -81,18 +81,27 @@ border: 2px solid rgb(173, 181, 189);</string>
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QLabel" name="background">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>861</width>
+      <height>544</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/background1/image1.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>background</zorder>
+   <zorder>AdminRole</zorder>
+   <zorder>Costumerrole</zorder>
+   <zorder>label</zorder>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>861</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

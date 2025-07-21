@@ -53,6 +53,25 @@ border-radius: 10px;
     <string>Sign-up</string>
    </property>
   </widget>
+  <widget class="QLabel" name="background">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>-510</y>
+     <width>1920</width>
+     <height>1080</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/background1/image1.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>background</zorder>
+  <zorder>LoginButton</zorder>
+  <zorder>SignupButton</zorder>
  </widget>
  <resources/>
  <connections/>
