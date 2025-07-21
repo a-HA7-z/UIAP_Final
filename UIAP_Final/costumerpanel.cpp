@@ -59,11 +59,29 @@ CostumerPanel::CostumerPanel(Costumer* currentCostumer,QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->blankPage);
     });
 
+    menuBar->setStyleSheet("QMenuBar { color: black; }");
+
     ui->CostumerOptions->setCurrentRow(-1);
 
     ui->stackedWidget->setCurrentWidget(ui->blankPage);
 
     connect(ui->CostumerOptions, &QListWidget::currentRowChanged, this, &CostumerPanel::on_CostumerOptions_currentRowChanged);
+
+    styleListWidget(ui->CostumerOptions);
+    adjustListHeight(ui->CostumerOptions);
+
+    ui->infoLabel->hide();
+    ui->destCardInfoLabel->hide();
+    ui->cardInfoLabel->hide();
+    ui->cardInfoLabel_2->hide();
+
+    ui->label_9->hide();
+    ui->PinLineEdit->hide();
+    ui->savePinButton->hide();
+
+    ui->label_10->hide();
+    ui->staticPassEdit->hide();
+    ui->saveStaticPass->hide();
 }
 
 void CostumerPanel::on_CostumerOptions_currentRowChanged(int index)
@@ -226,6 +244,9 @@ void CostumerPanel::on_searchButton_clicked()
                 info += "IBAN: " + QString::fromStdString(account->getIBANNumber());
 
                 ui->infoLabel->setText(info);
+
+                ui->infoLabel->show();
+
                 return;
             }
 
@@ -562,6 +583,9 @@ void CostumerPanel::on_destinationCardEdit_editingFinished()
                     costumerNode->getData().getLastName()
                     );
                 ui->destCardInfoLabel->setText("Receiver: " + fullName);
+
+                ui->destCardInfoLabel->show();
+
                 return;
             }
             accountNode = accountNode->getNext();
@@ -690,3 +714,60 @@ void CostumerPanel::on_transferButton_clicked()
     destAccountForTransfer = nullptr;
 }
 
+void CostumerPanel::styleListWidget(QListWidget* listWidget)
+{
+    if (!listWidget) return;
+
+    listWidget->setSpacing(4);
+
+    listWidget->setStyleSheet(R"(
+        QListWidget {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            padding: 4px;
+        }
+
+        QListWidget::item {
+            padding: 10px;
+            margin: 4px 0;
+            border-radius: 6px;
+            background-color: #eaf6ff;
+            color: black;
+        }
+
+        QListWidget::item:selected {
+            background-color: #d0eaff;
+            color: #000;
+        }
+
+        QListWidget::item:hover {
+            background-color: #eaf6ff;
+        }
+    )");
+}
+
+void CostumerPanel::adjustListHeight(QListWidget* listWidget)
+{
+    if (!listWidget || listWidget->count() == 0)
+        return;
+
+    int totalHeight = 0;
+    int spacing = listWidget->spacing();
+    int count = listWidget->count();
+
+    for (int i = 0; i < count; ++i) {
+        int rowHeight = listWidget->sizeHintForRow(i);
+        if (rowHeight <= 0) rowHeight = 48;
+        totalHeight += rowHeight;
+    }
+
+    totalHeight += count * spacing;
+
+    totalHeight += 2 * listWidget->frameWidth();
+
+    totalHeight += 2;
+
+    listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    listWidget->setFixedHeight(totalHeight);
+}

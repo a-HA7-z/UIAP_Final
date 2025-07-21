@@ -58,6 +58,8 @@ AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->blankPage);
     });
 
+    menuBar->setStyleSheet("QMenuBar { color: black; }");
+
     styleListWidget(ui->AdminOptions);
     adjustListHeight(ui->AdminOptions);
     ui->AdminOptions->setCurrentRow(-1);
@@ -68,6 +70,10 @@ AdminPanel::AdminPanel(Admin* currentAdmin,QWidget *parent)
 
     connect(ui->AdminOptions, &QListWidget::currentRowChanged, this, &AdminPanel::on_AdminOptions_rowChanged);
 
+
+    ui->accountInfoLabel->hide();
+    ui->ownerLabel->hide();
+    ui->CostumerInfoLabel->hide();
 }
 
 static const QRegularExpression onlyDigits("[^0-9]");
@@ -252,6 +258,9 @@ void AdminPanel::on_showInfoButton_clicked()
                 accInfo += QString::fromStdString(std::to_string(account->getBalance()));
                 ui->accountInfoLabel->setText(accInfo);
 
+                ui->accountInfoLabel->show();
+                ui->ownerLabel->show();
+
                 found = true;
                 break;
             }
@@ -342,6 +351,8 @@ void AdminPanel::on_checkCostumer_clicked()
                        + " / National Code: " + selectedCostumer->getNationalCode() + " / Age: ");
     info += QString::number(selectedCostumer->getAge());
     ui->CostumerInfoLabel->setText(info);
+
+    ui->CostumerInfoLabel->show();
 }
 
 

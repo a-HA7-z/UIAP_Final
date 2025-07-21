@@ -17,6 +17,8 @@ public:
     ~CostumerPanel();
     void loadMyAccounts();
     void loadAllBankAccounts();
+    void styleListWidget(QListWidget* listWidget);
+    void adjustListHeight(QListWidget* listWidget);
 
 private:
     Ui::CostumerPanel *ui;

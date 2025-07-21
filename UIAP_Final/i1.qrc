@@ -3,5 +3,6 @@
         <file>image1.png</file>
         <file>image2.png</file>
         <file>panelImage.png</file>
+        <file>costumerPanel.png</file>
     </qresource>
 </RCC>
